@@ -735,7 +735,7 @@
 
       <br /><br />
 
-      <div class="chart" ref="chart1"></div>
+      <!-- <div class="chart" ref="chart1"></div> -->
     </div>
   </div>
 </template>
