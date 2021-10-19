@@ -41,7 +41,7 @@
               >
             </b-nav-item>
 
-            <b-nav-item class="ml-2" href="#">
+            <!-- <b-nav-item class="ml-2" href="#">
               <h6><b style="color: #bea44d"> اخبار مسکن و شهری </b></h6>
             </b-nav-item>
 
@@ -65,7 +65,9 @@
 
             <b-nav-item class="ml-2" href="#">
               <h6><b style="color: #bea44d"> اخبار اقتصادی </b></h6>
-            </b-nav-item>
+            </b-nav-item> -->
+
+
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>

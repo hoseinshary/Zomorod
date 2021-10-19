@@ -5,736 +5,747 @@
         <b-card>
           <template #header>
             <div style="text-align: center">
-              <b> 
-              <b class="mb-0">نرخ های امروز</b>
-              {{ today }} </b>
+              <b>
+                <b class="mb-0">نرخ های امروز</b>
+                {{ today }}
+              </b>
             </div>
           </template>
-
-          <b-card-text>
-            <b-row class="mb-4" dir="rtl">
-              <div class="background container mr-8">
-                <b>
-                <b>
-                  <v-icon style="font-size: 20px; color: silver"
-                    >attach_money</v-icon
-                  >
-
-                  نرخ دلار :</b
-                > 
-
-                {{ numberWithCommas(dollar) }}
-                </b>
-              </div>
-
-              <div class="background container mr-3">
-                <b>
-                  <b>
-                    <v-icon style="font-size: 20px; color: silver"
-                      >crop_7_5</v-icon
-                    >
-
-                    نرخ انس :</b
-                  >
-                  {{ ons }}
-                </b>
-              </div>
-
-              <div class="background container mr-3">
-                <b> 
-                <b>
-                  <v-icon style="font-size: 18px; color: silver"
-                    >radio_button_unchecked</v-icon
-                  >
-
-                  نرخ نقره :</b
-                >
-                {{ numberWithCommas(silver) }}
-                                </b>
-
-              </div>
-            </b-row>
-          </b-card-text>
-
           <b-row>
-            <b-col class="pl-10">
-              <b-card-group dir="rtl">
-                <b-card border-variant="dark">
-                  <template #header>
-                    <div style="text-align: center">
-                      <b class="mb-0">صندوق طلا</b>
-                    </div>
-                  </template>
-
-                  <div class="container">
-                    <b-card-text>
-                      <b-row class="test1" dir="rtl">
-                        <b class="mr-0">
-                          <v-icon style="font-size: 20px; color: #120e0c"
-                            >inventory_2</v-icon
-                          >
-
-                          صندوق پشتوانه طلای لوتوس (طلا)
-                        </b>
-                        <br />
-
-                        <b class="mr-16"> قیمت پایانی :</b>
-                        <p dir="ltr">
-                          {{ numberWithCommas(talaLotusPriceOpen) }}
-                        </p>
-                      </b-row>
-
-                      <b-row class="test mr-8">
-                        <div class="test d-flex justify-content-start">
-                          <v-btn
-                            color="#7575a3"
-                            @click="showHobabLoutosDetails"
-                            icon
-                            large
-                          >
-                            <v-icon style="font-size: 30px"
-                              >keyboard_arrow_down</v-icon
-                            >
-                            <b> جزئیات </b>
-                          </v-btn>
-                        </div>
-                      </b-row>
-
-                      <div class="mt-2 mr-16" v-show="showHobabLoutos">
-                        <b> حباب نسبت به طلای خام سكه :</b>
-                        <p dir="ltr">{{ HobabTalaLotusSeke }}%</p>
-
-                        <b> حباب نسبت به NAV :</b>
-                        <p dir="ltr">{{ HobabTalaLotusNav }}%</p>
-
-                        <b> مقدار NAV ابطال:</b>
-                        <p dir="ltr">
-                          {{ numberWithCommas(talaLotusPricePrevious) }}
-                        </p>
-                      </div>
-
-                      <hr />
-
-                      <b-row dir="rtl">
-                        <b class="mr-0">
-                          <v-icon style="font-size: 20px; color: #120e0c"
-                            >inventory_2</v-icon
-                          >
-
-                          صندوق پشتوانه طلای مفید (عیار)</b
-                        >
-                        <br />
-
-                        <b class="mr-16"> قیمت پایانی :</b>
-                        <p dir="ltr">
-                          {{ numberWithCommas(talaAyarPriceOpen) }}
-                        </p>
-                      </b-row>
-
-                      <b-row class="test mr-8">
-                        <div class="test d-flex justify-content-start">
-                          <v-btn
-                            color="#7575a3"
-                            @click="showHobabEyarDetails"
-                            icon
-                            large
-                          >
-                            <v-icon style="font-size: 30px"
-                              >keyboard_arrow_down</v-icon
-                            >
-                            <b> جزئیات </b>
-                          </v-btn>
-                        </div>
-                      </b-row>
-
-                      <div class="mt-2 mr-16" v-show="showHobabEyar">
-                        <b> حباب نسبت به طلای خام سكه :</b>
-                        <p dir="ltr">{{ HobabTalaAyarSeke }}%</p>
-
-                        <b> حباب نسبت به NAV :</b>
-                        <p dir="ltr">{{ HobabTalaAyarNav }}%</p>
-
-                        <b> مقدار NAV ابطال:</b>
-                        <p dir="ltr">
-                          {{ numberWithCommas(talaAyarPricePrevious) }}
-                        </p>
-                      </div>
-
-                      <hr />
-
-                      <b-row dir="rtl">
-                        <b>
-                          <v-icon style="font-size: 20px; color: #120e0c"
-                            >inventory_2</v-icon
-                          >
-
-                          صندوق پشتوانه طلای زر (زر)</b
-                        >
-                        <br />
-
-                        <b class="mr-16"> قیمت پایانی :</b>
-                        <p dir="ltr">
-                          {{ numberWithCommas(talaZarPriceOpen) }}
-                        </p>
-                      </b-row>
-
-                      <b-row class="test mr-8">
-                        <div class="test d-flex justify-content-start">
-                          <v-btn
-                            color="#7575a3"
-                            @click="showHobabZarDetails"
-                            icon
-                            large
-                          >
-                            <v-icon style="font-size: 30px"
-                              >keyboard_arrow_down</v-icon
-                            >
-                            <b> جزئیات </b>
-                          </v-btn>
-                        </div>
-                      </b-row>
-
-                      <div class="mt-2 mr-16" v-show="showHobabZar">
-                        <b> حباب نسبت به طلای خام سكه :</b>
-                        <p dir="ltr">{{ HobabTalaZarSeke }}%</p>
-
-                        <b> حباب نسبت به NAV :</b>
-                        <p dir="ltr">{{ HobabTalaZarNav }}%</p>
-
-                        <b> مقدار NAV ابطال:</b>
-                        <p dir="ltr">
-                          {{ numberWithCommas(talaZarPricePrevious) }}
-                        </p>
-                      </div>
-
-                      <hr />
-
-                      <b-row dir="rtl">
-                        <b>
-                          <v-icon style="font-size: 20px; color: #120e0c"
-                            >inventory_2</v-icon
-                          >
-
-                          صندوق پشتوانه طلای کیان (گوهر)</b
-                        >
-                        <br />
-
-                        <b class="mr-16"> قیمت پایانی :</b>
-
-                        <p dir="ltr">
-                          {{ numberWithCommas(talaGoharPriceOpen) }}
-                        </p>
-                      </b-row>
-
-                      <b-row class="test mr-8">
-                        <div class="test d-flex justify-content-start">
-                          <v-btn
-                            color="#7575a3"
-                            @click="showHobabGoharDetails"
-                            icon
-                            large
-                          >
-                            <v-icon style="font-size: 30px"
-                              >keyboard_arrow_down</v-icon
-                            >
-                            <b> جزئیات </b>
-                          </v-btn>
-                        </div>
-                      </b-row>
-
-                      <div class="mt-2 mr-16" v-show="showHobabGohar">
-                        <b> حباب نسبت به طلای خام سكه :</b>
-                        <p dir="ltr">{{ HobabTalaGoharSeke }}%</p>
-
-                        <b> حباب نسبت به NAV :</b>
-                        <p dir="ltr">{{ HobabTalaGoharNav }}%</p>
-
-                        <b> مقدار NAV ابطال:</b>
-                        <p dir="ltr">
-                          {{ numberWithCommas(talaGoharPricePrevious) }}
-                        </p>
-                      </div>
-                    </b-card-text>
-                  </div>
-                </b-card>
-              </b-card-group>
-            </b-col>
-
-            <b-col>
-              <b-card-group>
-                <b-card dir="rtl" border-variant="dark">
-                  <template #header>
-                    <div style="text-align: center">
-                      <b class="mb-0">سکه بورسی</b>
-                    </div>
-                  </template>
-
-                  <div class="container">
-                    <b-card-text>
-                      <b-row dir="rtl">
-                        <b>
-                          <v-icon style="font-size: 30px; color: #fef478"
-                            >lens</v-icon
-                          >
-
-                          سکه یک روزه بانک رفاه
-                        </b>
-                        <br />
-
-                        <b class="mr-16"> قیمت پایانی :</b>
-                        <p class="mb-0" dir="ltr">
-                          {{ numberWithCommas(sekeRefahPrice) }}
-                        </p>
-                      </b-row>
-
-                      <b-row class="test mr-10">
-                        <div class="test d-flex justify-content-start">
-                          <v-btn
-                            color="#7575a3"
-                            @click="showHobabRefahDetail"
-                            icon
-                            large
-                          >
-                            <v-icon style="font-size: 30px"
-                              >keyboard_arrow_down</v-icon
-                            >
-                            <b> جزئیات </b>
-                          </v-btn>
-                        </div>
-                      </b-row>
-
-                      <div class="mt-2 mr-16" v-show="showHobabRefah">
-                        <b> حباب نسبت به بازار آزاد :</b>
-                        <p dir="ltr">{{ HobabRefahCoinFree }}%</p>
-
-                        <b> حباب نسبت به طلای خام سكه :</b>
-                        <p dir="ltr">{{ HobabRefahCoinSekeRiyal }} %</p>
-                      </div>
-
-                      <hr />
-
-                      <b-row dir="rtl">
-                        <b>
-                          <v-icon style="font-size: 30px; color: #fef478"
-                            >lens</v-icon
-                          >
-
-                          سکه یک روزه بانک صادرات
-                        </b>
-                        <br />
-
-                        <b class="mr-16"> قیمت پایانی :</b>
-
-                        <p dir="ltr">
-                          {{ numberWithCommas(sekeSaderatPrice) }}
-                        </p>
-                      </b-row>
-
-                      <b-row class="test mr-10">
-                        <div class="test d-flex justify-content-start">
-                          <v-btn
-                            color="#7575a3"
-                            @click="showHobabSaderatDetail"
-                            icon
-                            large
-                          >
-                            <v-icon style="font-size: 30px"
-                              >keyboard_arrow_down</v-icon
-                            >
-                            <b> جزئیات </b>
-                          </v-btn>
-                        </div>
-                      </b-row>
-
-                      <div class="mt-2 mr-16" v-show="showHobabSaderat">
-                        <b-row>
-                          <b> حباب نسبت به بازار آزاد :</b>
-                          <p dir="ltr">{{ HobabSaderatCoinFree }} %</p>
-                        </b-row>
-
-                        <b-row>
-                          <b> حباب نسبت به طلای خام سكه :</b>
-                          <p dir="ltr">{{ HobabSaderatCoinSekeRiyal }} %</p>
-                        </b-row>
-                      </div>
-                      <hr />
-
-                      <b-row dir="rtl">
-                        <b>
-                          <v-icon style="font-size: 30px; color: #fef478"
-                            >lens</v-icon
-                          >
-
-                          سکه یک روزه بانک ملت
-                        </b>
-                        <br />
-
-                        <b class="mr-16"> قیمت پایانی :</b>
-                        <p dir="ltr">{{ numberWithCommas(sekeMellatPrice) }}</p>
-                      </b-row>
-
-                      <b-row class="test mr-10">
-                        <div class="test d-flex justify-content-start">
-                          <v-btn
-                            color="#7575a3"
-                            @click="showHobabMelatDetail"
-                            icon
-                            large
-                          >
-                            <v-icon style="font-size: 30px"
-                              >keyboard_arrow_down</v-icon
-                            >
-
-                            <b> جزئیات </b>
-                          </v-btn>
-                        </div>
-                      </b-row>
-
-                      <div class="mt-2 mr-16" v-show="showHobabMelat">
-                        <b-row>
-                          <b> حباب نسبت به بازار آزاد :</b>
-                          <p dir="ltr">{{ HobabMellatCoinFree }} %</p>
-                        </b-row>
-
-                        <b-row>
-                          <b> حباب نسبت به طلای خام سكه :</b>
-                          <p dir="ltr">{{ HobabMellatCoinSekeRiyal }} %</p>
-                        </b-row>
-                      </div>
-                      <hr />
-
-                      <b-row dir="rtl">
-                        <b>
-                          <v-icon style="font-size: 30px; color: #fef478"
-                            >lens</v-icon
-                          >
-
-                          سکه یک روزه بانک سامان
-                        </b>
-                        <br />
-
-                        <b class="mr-16"> قیمت پایانی :</b>
-                        <p dir="ltr">{{ numberWithCommas(sekeSamanPrice) }}</p>
-                      </b-row>
-
-                      <b-row class="test mr-10">
-                        <div class="test d-flex justify-content-start">
-                          <v-btn
-                            color="#7575a3"
-                            @click="showHobabSamanDetail"
-                            icon
-                            large
-                          >
-                            <v-icon style="font-size: 30px"
-                              >keyboard_arrow_down</v-icon
-                            >
-
-                            <b> جزئیات </b>
-                          </v-btn>
-                        </div>
-                      </b-row>
-
-                      <div class="mt-2 mr-16" v-show="showHobabSaman">
-                        <b-row>
-                          <b> حباب نسبت به بازار آزاد :</b>
-                          <p dir="ltr">{{ HobabSamanCoinFree }} %</p>
-                        </b-row>
-
-                        <b-row>
-                          <b> حباب نسبت به طلای خام سكه :</b>
-                          <p dir="ltr">{{ HobabSamanCoinSekeRiyal }} %</p>
-                        </b-row>
-                      </div>
-                    </b-card-text>
-                  </div>
-                </b-card>
-              </b-card-group>
-            </b-col>
-
-            <b-col class="pr-10">
-              <b-card-group dir="rtl">
-                <b-card border-variant="dark">
-                  <template #header>
-                    <div style="text-align: center">
-                      <b class="mb-0">نرخ طلا و سكه</b>
-                    </div>
-                  </template>
-
-                  <div>
-                    <b-row>
+            <b-col cols="1"> </b-col>
+            <b-col cols="10">
+              <b-card-text>
+                <b-row class="mb-4" dir="rtl">
+                  
+                  <div class="background container mr-2 ">
+                    <b>
                       <b>
-                        <v-icon style="font-size: 30px; color: #fef478"
-                          >invert_colors</v-icon
+                        <v-icon style="font-size: 20px; color: silver"
+                          >attach_money</v-icon
                         >
 
-                        آبشده:</b
+                        نرخ دلار :</b
                       >
-                      <p dir="ltr">{{ numberWithCommas(mesghalPrice) }}</p>
-                    </b-row>
 
-                    <b-row class="mr-10">
-                      <div class="d-flex justify-content-start">
-                        <v-btn
-                          color="#7575a3"
-                          @click="showHobabmesghalDetails"
-                          icon
-                          large
-                        >
-                          <v-icon style="font-size: 30px"
-                            >keyboard_arrow_down</v-icon
-                          >
-                          <b> جزئیات </b>
-                        </v-btn>
-                      </div>
-
-                      <div class="mt-2" v-show="showHobabmesghal">
-                        <b> حباب آبشده :</b>
-                        <p dir="ltr">{{ HobabAbshode }}%</p>
-                      </div>
-                    </b-row>
+                      {{ numberWithCommas(dollar) }}
+                    </b>
                   </div>
 
-                  <hr />
-                  <b-row>
+                  <div class="background container mr-3">
                     <b>
-                      <v-icon style="font-size: 30px; color: #fef478"
-                        >lens</v-icon
-                      >
-
-                      سكه امامی:</b
-                    >
-                    <p dir="ltr">{{ numberWithCommas(sekePrice) }}</p>
-                  </b-row>
-
-                  <b-row class="mr-10">
-                    <div class="d-flex justify-content-start">
-                      <v-btn
-                        color="#7575a3"
-                        @click="showHobabSekeDetails"
-                        icon
-                        large
-                      >
-                        <v-icon style="font-size: 30px"
-                          >keyboard_arrow_down</v-icon
+                      <b>
+                        <v-icon style="font-size: 20px; color: silver"
+                          >crop_7_5</v-icon
                         >
-                        <b> جزئیات </b>
-                      </v-btn>
-                    </div>
 
-                    <div class="mt-2" v-show="showHobabSeke">
-                      <b> حباب سكه امامی :</b>
-                      <p dir="ltr">{{ HobabSeke }}%</p>
-                    </div>
-                  </b-row>
+                        نرخ انس :</b
+                      >
+                      {{ ons }}
+                    </b>
+                  </div>
 
-                  <hr />
-
-                  <b-row>
+                  <div class="background container mr-3">
                     <b>
-                      <v-icon style="font-size: 30px; color: #fef478"
-                        >lens</v-icon
-                      >
-
-                      سكه بهار آزادی:</b
-                    >
-                    <p dir="ltr">{{ numberWithCommas(sekeGhadimPrice) }}</p>
-                  </b-row>
-
-                  <b-row class="mr-10">
-                    <div class="d-flex justify-content-start">
-                      <v-btn
-                        color="#7575a3"
-                        @click="showHobabGhadimDetails"
-                        icon
-                        large
-                      >
-                        <v-icon style="font-size: 30px"
-                          >keyboard_arrow_down</v-icon
+                      <b>
+                        <v-icon style="font-size: 18px; color: silver"
+                          >radio_button_unchecked</v-icon
                         >
-                        <b> جزئیات </b>
-                      </v-btn>
-                    </div>
 
-                    <div class="mt-2" v-show="showHobabGhadim">
+                        نرخ نقره :</b
+                      >
+                      {{ numberWithCommas(silver) }}
+                    </b>
+                  </div>
+                </b-row>
+              </b-card-text>
+
+              <b-row>
+                <b-col>
+                  <b-card-group dir="rtl">
+                    <b-card border-variant="dark">
+                      <template #header>
+                        <div style="text-align: center">
+                          <b class="mb-0">صندوق طلا</b>
+                        </div>
+                      </template>
+
+                      <div class="container">
+                        <b-card-text>
+                          <b-row class="test1" dir="rtl">
+                            <b class="mr-0">
+                              <v-icon style="font-size: 20px; color: #120e0c"
+                                >inventory_2</v-icon
+                              >
+
+                              صندوق پشتوانه طلای لوتوس (طلا)
+                            </b>
+                            <br />
+
+                            <b class="mr-16"> قیمت پایانی :</b>
+                            <p dir="ltr">
+                              {{ numberWithCommas(talaLotusPriceOpen) }}
+                            </p>
+                          </b-row>
+
+                          <b-row class="test mr-8">
+                            <div class="test d-flex justify-content-start">
+                              <v-btn
+                                color="#7575a3"
+                                @click="showHobabLoutosDetails"
+                                icon
+                                large
+                              >
+                                <v-icon style="font-size: 30px"
+                                  >keyboard_arrow_down</v-icon
+                                >
+                                <b> جزئیات </b>
+                              </v-btn>
+                            </div>
+                          </b-row>
+
+                          <div class="mt-2 mr-16" v-show="showHobabLoutos">
+                            <b> حباب نسبت به طلای خام سكه :</b>
+                            <p dir="ltr">{{ HobabTalaLotusSeke }}%</p>
+
+                            <b> حباب نسبت به NAV :</b>
+                            <p dir="ltr">{{ HobabTalaLotusNav }}%</p>
+
+                            <b> مقدار NAV ابطال:</b>
+                            <p dir="ltr">
+                              {{ numberWithCommas(talaLotusPricePrevious) }}
+                            </p>
+                          </div>
+
+                          <hr />
+
+                          <b-row dir="rtl">
+                            <b class="mr-0">
+                              <v-icon style="font-size: 20px; color: #120e0c"
+                                >inventory_2</v-icon
+                              >
+
+                              صندوق پشتوانه طلای مفید (عیار)</b
+                            >
+                            <br />
+
+                            <b class="mr-16"> قیمت پایانی :</b>
+                            <p dir="ltr">
+                              {{ numberWithCommas(talaAyarPriceOpen) }}
+                            </p>
+                          </b-row>
+
+                          <b-row class="test mr-8">
+                            <div class="test d-flex justify-content-start">
+                              <v-btn
+                                color="#7575a3"
+                                @click="showHobabEyarDetails"
+                                icon
+                                large
+                              >
+                                <v-icon style="font-size: 30px"
+                                  >keyboard_arrow_down</v-icon
+                                >
+                                <b> جزئیات </b>
+                              </v-btn>
+                            </div>
+                          </b-row>
+
+                          <div class="mt-2 mr-16" v-show="showHobabEyar">
+                            <b> حباب نسبت به طلای خام سكه :</b>
+                            <p dir="ltr">{{ HobabTalaAyarSeke }}%</p>
+
+                            <b> حباب نسبت به NAV :</b>
+                            <p dir="ltr">{{ HobabTalaAyarNav }}%</p>
+
+                            <b> مقدار NAV ابطال:</b>
+                            <p dir="ltr">
+                              {{ numberWithCommas(talaAyarPricePrevious) }}
+                            </p>
+                          </div>
+
+                          <hr />
+
+                          <b-row dir="rtl">
+                            <b>
+                              <v-icon style="font-size: 20px; color: #120e0c"
+                                >inventory_2</v-icon
+                              >
+
+                              صندوق پشتوانه طلای زر (زر)</b
+                            >
+                            <br />
+
+                            <b class="mr-16"> قیمت پایانی :</b>
+                            <p dir="ltr">
+                              {{ numberWithCommas(talaZarPriceOpen) }}
+                            </p>
+                          </b-row>
+
+                          <b-row class="test mr-8">
+                            <div class="test d-flex justify-content-start">
+                              <v-btn
+                                color="#7575a3"
+                                @click="showHobabZarDetails"
+                                icon
+                                large
+                              >
+                                <v-icon style="font-size: 30px"
+                                  >keyboard_arrow_down</v-icon
+                                >
+                                <b> جزئیات </b>
+                              </v-btn>
+                            </div>
+                          </b-row>
+
+                          <div class="mt-2 mr-16" v-show="showHobabZar">
+                            <b> حباب نسبت به طلای خام سكه :</b>
+                            <p dir="ltr">{{ HobabTalaZarSeke }}%</p>
+
+                            <b> حباب نسبت به NAV :</b>
+                            <p dir="ltr">{{ HobabTalaZarNav }}%</p>
+
+                            <b> مقدار NAV ابطال:</b>
+                            <p dir="ltr">
+                              {{ numberWithCommas(talaZarPricePrevious) }}
+                            </p>
+                          </div>
+
+                          <hr />
+
+                          <b-row dir="rtl">
+                            <b>
+                              <v-icon style="font-size: 20px; color: #120e0c"
+                                >inventory_2</v-icon
+                              >
+
+                              صندوق پشتوانه طلای کیان (گوهر)</b
+                            >
+                            <br />
+
+                            <b class="mr-16"> قیمت پایانی :</b>
+
+                            <p dir="ltr">
+                              {{ numberWithCommas(talaGoharPriceOpen) }}
+                            </p>
+                          </b-row>
+
+                          <b-row class="test mr-8">
+                            <div class="test d-flex justify-content-start">
+                              <v-btn
+                                color="#7575a3"
+                                @click="showHobabGoharDetails"
+                                icon
+                                large
+                              >
+                                <v-icon style="font-size: 30px"
+                                  >keyboard_arrow_down</v-icon
+                                >
+                                <b> جزئیات </b>
+                              </v-btn>
+                            </div>
+                          </b-row>
+
+                          <div class="mt-2 mr-16" v-show="showHobabGohar">
+                            <b> حباب نسبت به طلای خام سكه :</b>
+                            <p dir="ltr">{{ HobabTalaGoharSeke }}%</p>
+
+                            <b> حباب نسبت به NAV :</b>
+                            <p dir="ltr">{{ HobabTalaGoharNav }}%</p>
+
+                            <b> مقدار NAV ابطال:</b>
+                            <p dir="ltr">
+                              {{ numberWithCommas(talaGoharPricePrevious) }}
+                            </p>
+                          </div>
+                        </b-card-text>
+                      </div>
+                    </b-card>
+                  </b-card-group>
+                </b-col>
+
+                <b-col>
+                  <b-card-group>
+                    <b-card dir="rtl" border-variant="dark">
+                      <template #header>
+                        <div style="text-align: center">
+                          <b class="mb-0">سکه بورسی</b>
+                        </div>
+                      </template>
+
+                      <div class="container">
+                        <b-card-text>
+                          <b-row dir="rtl">
+                            <b>
+                              <v-icon style="font-size: 30px; color: #fef478"
+                                >lens</v-icon
+                              >
+
+                              سکه یک روزه بانک رفاه
+                            </b>
+                            <br />
+
+                            <b class="mr-16"> قیمت پایانی :</b>
+                            <p class="mb-0" dir="ltr">
+                              {{ numberWithCommas(sekeRefahPrice) }}
+                            </p>
+                          </b-row>
+
+                          <b-row class="test mr-10">
+                            <div class="test d-flex justify-content-start">
+                              <v-btn
+                                color="#7575a3"
+                                @click="showHobabRefahDetail"
+                                icon
+                                large
+                              >
+                                <v-icon style="font-size: 30px"
+                                  >keyboard_arrow_down</v-icon
+                                >
+                                <b> جزئیات </b>
+                              </v-btn>
+                            </div>
+                          </b-row>
+
+                          <div class="mt-2 mr-16" v-show="showHobabRefah">
+                            <b> حباب نسبت به بازار آزاد :</b>
+                            <p dir="ltr">{{ HobabRefahCoinFree }}%</p>
+
+                            <b> حباب نسبت به طلای خام سكه :</b>
+                            <p dir="ltr">{{ HobabRefahCoinSekeRiyal }} %</p>
+                          </div>
+
+                          <hr />
+
+                          <b-row dir="rtl">
+                            <b>
+                              <v-icon style="font-size: 30px; color: #fef478"
+                                >lens</v-icon
+                              >
+
+                              سکه یک روزه بانک صادرات
+                            </b>
+                            <br />
+
+                            <b class="mr-16"> قیمت پایانی :</b>
+
+                            <p dir="ltr">
+                              {{ numberWithCommas(sekeSaderatPrice) }}
+                            </p>
+                          </b-row>
+
+                          <b-row class="test mr-10">
+                            <div class="test d-flex justify-content-start">
+                              <v-btn
+                                color="#7575a3"
+                                @click="showHobabSaderatDetail"
+                                icon
+                                large
+                              >
+                                <v-icon style="font-size: 30px"
+                                  >keyboard_arrow_down</v-icon
+                                >
+                                <b> جزئیات </b>
+                              </v-btn>
+                            </div>
+                          </b-row>
+
+                          <div class="mt-2 mr-16" v-show="showHobabSaderat">
+                            <b-row>
+                              <b> حباب نسبت به بازار آزاد :</b>
+                              <p dir="ltr">{{ HobabSaderatCoinFree }} %</p>
+                            </b-row>
+
+                            <b-row>
+                              <b> حباب نسبت به طلای خام سكه :</b>
+                              <p dir="ltr">{{ HobabSaderatCoinSekeRiyal }} %</p>
+                            </b-row>
+                          </div>
+                          <hr />
+
+                          <b-row dir="rtl">
+                            <b>
+                              <v-icon style="font-size: 30px; color: #fef478"
+                                >lens</v-icon
+                              >
+
+                              سکه یک روزه بانک ملت
+                            </b>
+                            <br />
+
+                            <b class="mr-16"> قیمت پایانی :</b>
+                            <p dir="ltr">
+                              {{ numberWithCommas(sekeMellatPrice) }}
+                            </p>
+                          </b-row>
+
+                          <b-row class="test mr-10">
+                            <div class="test d-flex justify-content-start">
+                              <v-btn
+                                color="#7575a3"
+                                @click="showHobabMelatDetail"
+                                icon
+                                large
+                              >
+                                <v-icon style="font-size: 30px"
+                                  >keyboard_arrow_down</v-icon
+                                >
+
+                                <b> جزئیات </b>
+                              </v-btn>
+                            </div>
+                          </b-row>
+
+                          <div class="mt-2 mr-16" v-show="showHobabMelat">
+                            <b-row>
+                              <b> حباب نسبت به بازار آزاد :</b>
+                              <p dir="ltr">{{ HobabMellatCoinFree }} %</p>
+                            </b-row>
+
+                            <b-row>
+                              <b> حباب نسبت به طلای خام سكه :</b>
+                              <p dir="ltr">{{ HobabMellatCoinSekeRiyal }} %</p>
+                            </b-row>
+                          </div>
+                          <hr />
+
+                          <b-row dir="rtl">
+                            <b>
+                              <v-icon style="font-size: 30px; color: #fef478"
+                                >lens</v-icon
+                              >
+
+                              سکه یک روزه بانک سامان
+                            </b>
+                            <br />
+
+                            <b class="mr-16"> قیمت پایانی :</b>
+                            <p dir="ltr">
+                              {{ numberWithCommas(sekeSamanPrice) }}
+                            </p>
+                          </b-row>
+
+                          <b-row class="test mr-10">
+                            <div class="test d-flex justify-content-start">
+                              <v-btn
+                                color="#7575a3"
+                                @click="showHobabSamanDetail"
+                                icon
+                                large
+                              >
+                                <v-icon style="font-size: 30px"
+                                  >keyboard_arrow_down</v-icon
+                                >
+
+                                <b> جزئیات </b>
+                              </v-btn>
+                            </div>
+                          </b-row>
+
+                          <div class="mt-2 mr-16" v-show="showHobabSaman">
+                            <b-row>
+                              <b> حباب نسبت به بازار آزاد :</b>
+                              <p dir="ltr">{{ HobabSamanCoinFree }} %</p>
+                            </b-row>
+
+                            <b-row>
+                              <b> حباب نسبت به طلای خام سكه :</b>
+                              <p dir="ltr">{{ HobabSamanCoinSekeRiyal }} %</p>
+                            </b-row>
+                          </div>
+                        </b-card-text>
+                      </div>
+                    </b-card>
+                  </b-card-group>
+                </b-col>
+
+                <b-col >
+                  <b-card-group dir="rtl">
+                    <b-card border-variant="dark">
+                      <template #header>
+                        <div style="text-align: center">
+                          <b class="mb-0">نرخ طلا و سكه</b>
+                        </div>
+                      </template>
+
+                      <div>
+                        <b-row>
+                          <b>
+                            <v-icon style="font-size: 30px; color: #fef478"
+                              >invert_colors</v-icon
+                            >
+
+                            آبشده:</b
+                          >
+                          <p dir="ltr">{{ numberWithCommas(mesghalPrice) }}</p>
+                        </b-row>
+
+                        <b-row class="mr-10">
+                          <div class="d-flex justify-content-start">
+                            <v-btn
+                              color="#7575a3"
+                              @click="showHobabmesghalDetails"
+                              icon
+                              large
+                            >
+                              <v-icon style="font-size: 30px"
+                                >keyboard_arrow_down</v-icon
+                              >
+                              <b> جزئیات </b>
+                            </v-btn>
+                          </div>
+
+                          <div class="mt-2" v-show="showHobabmesghal">
+                            <b> حباب آبشده :</b>
+                            <p dir="ltr">{{ HobabAbshode }}%</p>
+                          </div>
+                        </b-row>
+                      </div>
+
+                      <hr />
                       <b-row>
-                        <b> حباب سكه بهار آزادی :</b>
-                        <p dir="ltr">{{ HobabSekeGhadim }}%</p>
-                      </b-row>
-                    </div>
-                  </b-row>
+                        <b>
+                          <v-icon style="font-size: 30px; color: #fef478"
+                            >lens</v-icon
+                          >
 
-                  <hr />
-
-                  <b-row>
-                    <b>
-                      <v-icon style="font-size: 30px; color: #fef478"
-                        >contrast</v-icon
-                      >
-
-                      سکه نیم :</b
-                    >
-                    <p dir="ltr">{{ numberWithCommas(nimPrice) }}</p>
-                  </b-row>
-
-                  <b-row class="mr-10">
-                    <div class="d-flex justify-content-start">
-                      <v-btn
-                        color="#7575a3"
-                        @click="showHobabNimDetails"
-                        icon
-                        large
-                      >
-                        <v-icon style="font-size: 30px"
-                          >keyboard_arrow_down</v-icon
+                          سكه امامی:</b
                         >
-                        <b> جزئیات </b>
-                      </v-btn>
-                    </div>
-
-                    <div class="mt-2" v-show="showHobabNim">
-                      <b-row>
-                        <b> حباب نیم سكه :</b>
-                        <p dir="ltr">{{ HobabNim }}%</p>
+                        <p dir="ltr">{{ numberWithCommas(sekePrice) }}</p>
                       </b-row>
-                    </div>
-                  </b-row>
 
-                  <hr />
+                      <b-row class="mr-10">
+                        <div class="d-flex justify-content-start">
+                          <v-btn
+                            color="#7575a3"
+                            @click="showHobabSekeDetails"
+                            icon
+                            large
+                          >
+                            <v-icon style="font-size: 30px"
+                              >keyboard_arrow_down</v-icon
+                            >
+                            <b> جزئیات </b>
+                          </v-btn>
+                        </div>
 
-                  <b-row>
-                    <b>
-                      <v-icon style="font-size: 30px; color: #fef478"
-                        >donut_small</v-icon
-                      >
+                        <div class="mt-2" v-show="showHobabSeke">
+                          <b> حباب سكه امامی :</b>
+                          <p dir="ltr">{{ HobabSeke }}%</p>
+                        </div>
+                      </b-row>
 
-                      سکه ربع :</b
-                    >
-                    <p dir="ltr">{{ numberWithCommas(robPrice) }}</p>
-                  </b-row>
+                      <hr />
 
-                  <b-row class="mr-10">
-                    <div class="d-flex justify-content-start">
-                      <v-btn
-                        color="#7575a3"
-                        @click="showHobabRobDetails"
-                        icon
-                        large
-                      >
-                        <v-icon style="font-size: 30px"
-                          >keyboard_arrow_down</v-icon
+                      <b-row>
+                        <b>
+                          <v-icon style="font-size: 30px; color: #fef478"
+                            >lens</v-icon
+                          >
+
+                          سكه بهار آزادی:</b
                         >
-                        <b> جزئیات </b>
-                      </v-btn>
-                    </div>
-
-                    <div class="mt-2" v-show="showHobabRob">
-                      <b-row>
-                        <b> حباب ربع سكه :</b>
-                        <p dir="ltr">{{ HobabRob }}%</p>
+                        <p dir="ltr">{{ numberWithCommas(sekeGhadimPrice) }}</p>
                       </b-row>
-                    </div>
-                  </b-row>
 
-                  <hr />
+                      <b-row class="mr-10">
+                        <div class="d-flex justify-content-start">
+                          <v-btn
+                            color="#7575a3"
+                            @click="showHobabGhadimDetails"
+                            icon
+                            large
+                          >
+                            <v-icon style="font-size: 30px"
+                              >keyboard_arrow_down</v-icon
+                            >
+                            <b> جزئیات </b>
+                          </v-btn>
+                        </div>
 
-                  <b-row>
-                    <b>
-                      <v-icon style="font-size: 30px; color: #fef478"
-                        >lens</v-icon
-                      >
+                        <div class="mt-2" v-show="showHobabGhadim">
+                          <b-row>
+                            <b> حباب سكه بهار آزادی :</b>
+                            <p dir="ltr">{{ HobabSekeGhadim }}%</p>
+                          </b-row>
+                        </div>
+                      </b-row>
 
-                      سکه گرمی :</b
-                    >
-                    <p dir="ltr">{{ numberWithCommas(sekeGeramiPrice) }}</p>
-                  </b-row>
+                      <hr />
 
-                  <b-row class="mr-10">
-                    <div class="d-flex justify-content-start">
-                      <v-btn
-                        color="#7575a3"
-                        @click="showHobabGeramiDetails"
-                        icon
-                        large
-                      >
-                        <v-icon style="font-size: 30px"
-                          >keyboard_arrow_down</v-icon
+                      <b-row>
+                        <b>
+                          <v-icon style="font-size: 30px; color: #fef478"
+                            >contrast</v-icon
+                          >
+
+                          سکه نیم :</b
                         >
-                        <b> جزئیات </b>
-                      </v-btn>
-                    </div>
-
-                    <div class="mt-2" v-show="showHobabGerami">
-                      <b-row>
-                        <b> حباب سكه گرمی :</b>
-                        <p dir="ltr">{{ HobabGerami }}%</p>
+                        <p dir="ltr">{{ numberWithCommas(nimPrice) }}</p>
                       </b-row>
-                    </div>
-                  </b-row>
 
-                  <hr />
+                      <b-row class="mr-10">
+                        <div class="d-flex justify-content-start">
+                          <v-btn
+                            color="#7575a3"
+                            @click="showHobabNimDetails"
+                            icon
+                            large
+                          >
+                            <v-icon style="font-size: 30px"
+                              >keyboard_arrow_down</v-icon
+                            >
+                            <b> جزئیات </b>
+                          </v-btn>
+                        </div>
 
-                  <b-row>
-                    <b>
-                      <v-icon style="font-size: 30px; color: #fef478"
-                        >18mp</v-icon
-                      >
-                      نرخ طلای 18:</b
-                    >
+                        <div class="mt-2" v-show="showHobabNim">
+                          <b-row>
+                            <b> حباب نیم سكه :</b>
+                            <p dir="ltr">{{ HobabNim }}%</p>
+                          </b-row>
+                        </div>
+                      </b-row>
 
-                    <p dir="ltr">{{ geramTalaPrice }}</p>
-                  </b-row>
+                      <hr />
 
-                  <hr />
-                  <b-row>
-                    <b>
-                      <v-icon style="font-size: 30px; color: #fef478"
-                        >24mp</v-icon
-                      >
+                      <b-row>
+                        <b>
+                          <v-icon style="font-size: 30px; color: #fef478"
+                            >donut_small</v-icon
+                          >
 
-                      نرخ طلای 24:</b
-                    >
-                    <p dir="ltr">{{ gram24TalaPrice }}</p>
-                  </b-row>
+                          سکه ربع :</b
+                        >
+                        <p dir="ltr">{{ numberWithCommas(robPrice) }}</p>
+                      </b-row>
 
-                  <hr />
+                      <b-row class="mr-10">
+                        <div class="d-flex justify-content-start">
+                          <v-btn
+                            color="#7575a3"
+                            @click="showHobabRobDetails"
+                            icon
+                            large
+                          >
+                            <v-icon style="font-size: 30px"
+                              >keyboard_arrow_down</v-icon
+                            >
+                            <b> جزئیات </b>
+                          </v-btn>
+                        </div>
 
-                  <b-row>
-                    <b>
-                      <v-icon style="font-size: 30px; color: #fef478"
-                        >invert_colors</v-icon
-                      >
-                      ارزش طلای آبشده :</b
-                    >
-                    <p dir="ltr">{{ mesghalRiyal }}%</p>
-                  </b-row>
-                  <hr />
+                        <div class="mt-2" v-show="showHobabRob">
+                          <b-row>
+                            <b> حباب ربع سكه :</b>
+                            <p dir="ltr">{{ HobabRob }}%</p>
+                          </b-row>
+                        </div>
+                      </b-row>
 
-                  <b-row>
-                    <b>
-                      <v-icon style="font-size: 30px; color: #e6e600"
-                        >lens</v-icon
-                      >
+                      <hr />
 
-                      ارزش طلای خام سكه تمام :</b
-                    >
-                    <p dir="ltr">{{ sekeRiyal }}%</p>
-                  </b-row>
+                      <b-row>
+                        <b>
+                          <v-icon style="font-size: 30px; color: #fef478"
+                            >lens</v-icon
+                          >
 
-                  <hr />
+                          سکه گرمی :</b
+                        >
+                        <p dir="ltr">{{ numberWithCommas(sekeGeramiPrice) }}</p>
+                      </b-row>
 
-                  <b-row>
-                    <b>
-                      <v-icon style="font-size: 30px; color: silver"
-                        >crop_7_5</v-icon
-                      >
-                      نرخ انس نقره:</b
-                    >
+                      <b-row class="mr-10">
+                        <div class="d-flex justify-content-start">
+                          <v-btn
+                            color="#7575a3"
+                            @click="showHobabGeramiDetails"
+                            icon
+                            large
+                          >
+                            <v-icon style="font-size: 30px"
+                              >keyboard_arrow_down</v-icon
+                            >
+                            <b> جزئیات </b>
+                          </v-btn>
+                        </div>
 
-                    <p dir="ltr">{{ silverPrice }}</p>
-                  </b-row>
-                </b-card>
-              </b-card-group>
+                        <div class="mt-2" v-show="showHobabGerami">
+                          <b-row>
+                            <b> حباب سكه گرمی :</b>
+                            <p dir="ltr">{{ HobabGerami }}%</p>
+                          </b-row>
+                        </div>
+                      </b-row>
+
+                      <hr />
+
+                      <b-row>
+                        <b>
+                          <v-icon style="font-size: 30px; color: #fef478"
+                            >18mp</v-icon
+                          >
+                          نرخ طلای 18:</b
+                        >
+
+                        <p dir="ltr">{{ geramTalaPrice }}</p>
+                      </b-row>
+
+                      <hr />
+                      <b-row>
+                        <b>
+                          <v-icon style="font-size: 30px; color: #fef478"
+                            >24mp</v-icon
+                          >
+
+                          نرخ طلای 24:</b
+                        >
+                        <p dir="ltr">{{ gram24TalaPrice }}</p>
+                      </b-row>
+
+                      <hr />
+
+                      <b-row>
+                        <b>
+                          <v-icon style="font-size: 30px; color: #fef478"
+                            >invert_colors</v-icon
+                          >
+                          ارزش طلای آبشده :</b
+                        >
+                        <p dir="ltr">{{ mesghalRiyal }}%</p>
+                      </b-row>
+                      <hr />
+
+                      <b-row>
+                        <b>
+                          <v-icon style="font-size: 30px; color: #e6e600"
+                            >lens</v-icon
+                          >
+
+                          ارزش طلای خام سكه تمام :</b
+                        >
+                        <p dir="ltr">{{ sekeRiyal }}%</p>
+                      </b-row>
+
+                      <hr />
+
+                      <b-row>
+                        <b>
+                          <v-icon style="font-size: 30px; color: silver"
+                            >crop_7_5</v-icon
+                          >
+                          نرخ انس نقره:</b
+                        >
+
+                        <p dir="ltr">{{ silverPrice }}</p>
+                      </b-row>
+                    </b-card>
+                  </b-card-group>
+                </b-col>
+              </b-row>
             </b-col>
+
+            <b-col cols="1"> </b-col>
           </b-row>
         </b-card>
       </b-card-group>
