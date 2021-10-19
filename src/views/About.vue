@@ -115,11 +115,11 @@
       <hr />
 
       <b-row>
-        <b-col align="center" class="hobab2">
+        <b-col align="left" class="hobab2">
           {{ Hobab2 }}
           <b> :حباب دوم </b>
         </b-col>
-        <b-col class="hobab1">
+        <b-col align="right" class="hobab1">
           {{ Hobab2 }}
           <b> : حباب اول </b>
         </b-col>
@@ -215,20 +215,13 @@ export default {
 </script>
 
 <style scoped>
-.row1 {
-  margin-right: 150px !important;
-}
+
 
 .first {
   padding: 0px !important;
   margin: 0px !important;
 }
-.but {
-  /* margin-left: 60%; */
-  margin-right: 350px !important;
-  margin-left: 350px !important;
-  justify-content: center !important;
-}
+
 .firstcol {
    padding-right: 15%;
 }
@@ -237,11 +230,11 @@ export default {
 }
 
 .hobab2 {
-  margin-left: 230.5px !important;
+  margin-left: 20%;
 }
 
 .hobab1 {
-  margin-left: 20.5px !important;
+  margin-right: 20%;
 }
 
 .select {

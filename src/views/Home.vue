@@ -5,45 +5,53 @@
         <b-card>
           <template #header>
             <div style="text-align: center">
+              <b> 
               <b class="mb-0">نرخ های امروز</b>
-              {{ today }}
+              {{ today }} </b>
             </div>
           </template>
 
           <b-card-text>
             <b-row class="mb-4" dir="rtl">
-              <div class="background container mr-10">
+              <div class="background container mr-8">
                 <b>
-                  <v-icon style="font-size: 30px; color: silver"
+                <b>
+                  <v-icon style="font-size: 20px; color: silver"
                     >attach_money</v-icon
                   >
 
                   نرخ دلار :</b
-                >
+                > 
 
                 {{ numberWithCommas(dollar) }}
+                </b>
               </div>
 
               <div class="background container mr-3">
                 <b>
-                  <v-icon style="font-size: 25px; color: silver"
-                    >crop_7_5</v-icon
+                  <b>
+                    <v-icon style="font-size: 20px; color: silver"
+                      >crop_7_5</v-icon
+                    >
+
+                    نرخ انس :</b
                   >
-
-                  نرخ انس :</b
-                >
-                {{ ons }}
+                  {{ ons }}
+                </b>
               </div>
 
               <div class="background container mr-3">
+                <b> 
                 <b>
-                  <v-icon style="font-size: 30px; color: silver"
+                  <v-icon style="font-size: 18px; color: silver"
                     >radio_button_unchecked</v-icon
                   >
 
                   نرخ نقره :</b
                 >
                 {{ numberWithCommas(silver) }}
+                                </b>
+
               </div>
             </b-row>
           </b-card-text>
@@ -57,7 +65,7 @@
                       <b class="mb-0">صندوق طلا</b>
                     </div>
                   </template>
-                  <div class="background"></div>
+
                   <div class="container">
                     <b-card-text>
                       <b-row class="test1" dir="rtl">
@@ -1105,9 +1113,7 @@ export default {
 .test1 {
   margin-bottom: 0% !important;
 }
-.hobabptn :hover {
-  background-color: none !important;
-}
+
 p {
   padding: 0%;
   margin: 0%;
@@ -1117,6 +1123,6 @@ p {
   margin: 0% !important;
   padding: 0% !important;
   background-color: #f0f0f5;
-  width: 7.8rem;
+  width: 10rem;
 }
 </style>
