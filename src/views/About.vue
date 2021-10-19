@@ -8,7 +8,7 @@
       </template>
 
       <b-row dir="rtl">
-        <b-col class="firstcol mr-15 ml-15" dir="ltr">
+        <b-col class="firstcol" align="right" dir="ltr">
           <v-select
             reverse
             class="select"
@@ -32,7 +32,7 @@
           ></v-text-field>
         </b-col>
 
-        <b-col class="secol mr-15 ml-15" dir="ltr">
+        <b-col class="secol" align="left" dir="ltr">
           <v-select
             reverse
             class="select"
@@ -230,10 +230,10 @@ export default {
   justify-content: center !important;
 }
 .firstcol {
-  padding-left: 160px;
+   padding-right: 15%;
 }
 .secol {
-  padding-left: 220px;
+  padding-left: 15%;
 }
 
 .hobab2 {

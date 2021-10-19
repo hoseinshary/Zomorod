@@ -742,7 +742,7 @@
 
 <script>
 import axios from "axios";
-import { createChart } from "lightweight-charts";
+// import { createChart } from "lightweight-charts";
 //  import { LightweightCharts } from "lightweight-charts";
 
 export default {
@@ -955,138 +955,138 @@ export default {
       .catch((e) => {
         this.errors.push(e);
       });
-    var chart = createChart(document.body, {
-      width: 600,
-      height: 300,
-      timeScale: {
-        timeVisible: true,
-        borderColor: "#D1D4DC",
-      },
-      rightPriceScale: {
-        borderColor: "#D1D4DC",
-      },
-      layout: {
-        backgroundColor: "#ffffff",
-        textColor: "#000",
-      },
-      grid: {
-        horzLines: {
-          color: "#F0F3FA",
-        },
-        vertLines: {
-          color: "#F0F3FA",
-        },
-      },
-    });
-    var series = chart.addCandlestickSeries({
-      upColor: "rgb(38,166,154)",
-      downColor: "rgb(255,82,82)",
-      wickUpColor: "rgb(38,166,154)",
-      wickDownColor: "rgb(255,82,82)",
-      borderVisible: false,
-    });
-    var data = [
-      {
-        time: { year: 2018, month: 9, day: 22 },
-        open: 29.630237296336794,
-        high: 35.36950035097501,
-        low: 26.21522501353531,
-        close: 30.734997177569916,
-      },
-      {
-        time: { year: 2018, month: 9, day: 23 },
-        open: 32.267626500691215,
-        high: 34.452661663723774,
-        low: 26.096868360824704,
-        close: 29.573918833457004,
-      },
-      {
-        time: { year: 2018, month: 9, day: 24 },
-        open: 27.33996760497746,
-        high: 35.8060364835531,
-        low: 27.33996760497746,
-        close: 33.06283432964511,
-      },
-      {
-        time: { year: 2018, month: 9, day: 25 },
-        open: 31.1654368745013,
-        high: 31.97284477478497,
-        low: 26.766743287285593,
-        close: 27.364979322283386,
-      },
-      {
-        time: { year: 2018, month: 9, day: 26 },
-        open: 29.5901452337888,
-        high: 32.147919593347474,
-        low: 27.53289219709677,
-        close: 29.202912415085272,
-      },
-      {
-        time: { year: 2018, month: 9, day: 27 },
-        open: 27.561741523265923,
-        high: 35.11649043301526,
-        low: 25.20035866163233,
-        close: 31.14520649627546,
-      },
-      {
-        time: { year: 2018, month: 9, day: 28 },
-        open: 31.925975006823798,
-        high: 31.925975006823798,
-        low: 28.998500720406675,
-        close: 29.87723790403876,
-      },
-      {
-        time: { year: 2018, month: 9, day: 29 },
-        open: 30.826956088992475,
-        high: 34.79463130873015,
-        low: 25.291546123273097,
-        close: 28.994812708315987,
-      },
-      {
-        time: { year: 2018, month: 9, day: 30 },
-        open: 31.202920145287838,
-        high: 33.19178819590413,
-        low: 23.94419012923956,
-        close: 31.47253745770869,
-      },
-    ];
-    console.log("data", data);
-    series.setData(data);
-    var datesForMarkers = [data[data.length - 19], data[data.length - 39]];
-    var indexOfMinPrice = 0;
-    for (var i = 1; i < datesForMarkers.length; i++) {
-      if (datesForMarkers[i].high < datesForMarkers[indexOfMinPrice].high) {
-        indexOfMinPrice = i;
-      }
-    }
-    var markers = [];
-    for (var j = 0; j < datesForMarkers.length; j++) {
-      if (j !== indexOfMinPrice) {
-        markers.push({
-          time: datesForMarkers[j].time,
-          position: "aboveBar",
-          color: "#e91e63",
-          shape: "arrowDown",
-          text: "Sell @ " + Math.floor(datesForMarkers[j].high + 2),
-        });
-      } else {
-        markers.push({
-          time: datesForMarkers[j].time,
-          position: "belowBar",
-          color: "#2196F3",
-          shape: "arrowUp",
-          text: "Buy @ " + Math.floor(datesForMarkers[j].low - 2),
-        });
-      }
-    }
-    markers.push({
-      time: data[data.length - 48].time,
-      position: "aboveBar",
-      color: "#f68410",
-      shape: "circle",
-      text: "D",
-    });
-    series.setMarkers(markers);
+    // var chart = createChart(document.body, {
+    //   width: 600,
+    //   height: 300,
+    //   timeScale: {
+    //     timeVisible: true,
+    //     borderColor: "#D1D4DC",
+    //   },
+    //   rightPriceScale: {
+    //     borderColor: "#D1D4DC",
+    //   },
+    //   layout: {
+    //     backgroundColor: "#ffffff",
+    //     textColor: "#000",
+    //   },
+    //   grid: {
+    //     horzLines: {
+    //       color: "#F0F3FA",
+    //     },
+    //     vertLines: {
+    //       color: "#F0F3FA",
+    //     },
+    //   },
+    // });
+    // var series = chart.addCandlestickSeries({
+    //   upColor: "rgb(38,166,154)",
+    //   downColor: "rgb(255,82,82)",
+    //   wickUpColor: "rgb(38,166,154)",
+    //   wickDownColor: "rgb(255,82,82)",
+    //   borderVisible: false,
+    // });
+    // var data = [
+    //   {
+    //     time: { year: 2018, month: 9, day: 22 },
+    //     open: 29.630237296336794,
+    //     high: 35.36950035097501,
+    //     low: 26.21522501353531,
+    //     close: 30.734997177569916,
+    //   },
+    //   {
+    //     time: { year: 2018, month: 9, day: 23 },
+    //     open: 32.267626500691215,
+    //     high: 34.452661663723774,
+    //     low: 26.096868360824704,
+    //     close: 29.573918833457004,
+    //   },
+    //   {
+    //     time: { year: 2018, month: 9, day: 24 },
+    //     open: 27.33996760497746,
+    //     high: 35.8060364835531,
+    //     low: 27.33996760497746,
+    //     close: 33.06283432964511,
+    //   },
+    //   {
+    //     time: { year: 2018, month: 9, day: 25 },
+    //     open: 31.1654368745013,
+    //     high: 31.97284477478497,
+    //     low: 26.766743287285593,
+    //     close: 27.364979322283386,
+    //   },
+    //   {
+    //     time: { year: 2018, month: 9, day: 26 },
+    //     open: 29.5901452337888,
+    //     high: 32.147919593347474,
+    //     low: 27.53289219709677,
+    //     close: 29.202912415085272,
+    //   },
+    //   {
+    //     time: { year: 2018, month: 9, day: 27 },
+    //     open: 27.561741523265923,
+    //     high: 35.11649043301526,
+    //     low: 25.20035866163233,
+    //     close: 31.14520649627546,
+    //   },
+    //   {
+    //     time: { year: 2018, month: 9, day: 28 },
+    //     open: 31.925975006823798,
+    //     high: 31.925975006823798,
+    //     low: 28.998500720406675,
+    //     close: 29.87723790403876,
+    //   },
+    //   {
+    //     time: { year: 2018, month: 9, day: 29 },
+    //     open: 30.826956088992475,
+    //     high: 34.79463130873015,
+    //     low: 25.291546123273097,
+    //     close: 28.994812708315987,
+    //   },
+    //   {
+    //     time: { year: 2018, month: 9, day: 30 },
+    //     open: 31.202920145287838,
+    //     high: 33.19178819590413,
+    //     low: 23.94419012923956,
+    //     close: 31.47253745770869,
+    //   },
+    // ];
+    // console.log("data", data);
+    // series.setData(data);
+    // var datesForMarkers = [data[data.length - 19], data[data.length - 39]];
+    // var indexOfMinPrice = 0;
+    // for (var i = 1; i < datesForMarkers.length; i++) {
+    //   if (datesForMarkers[i].high < datesForMarkers[indexOfMinPrice].high) {
+    //     indexOfMinPrice = i;
+    //   }
+    // }
+    // var markers = [];
+    // for (var j = 0; j < datesForMarkers.length; j++) {
+    //   if (j !== indexOfMinPrice) {
+    //     markers.push({
+    //       time: datesForMarkers[j].time,
+    //       position: "aboveBar",
+    //       color: "#e91e63",
+    //       shape: "arrowDown",
+    //       text: "Sell @ " + Math.floor(datesForMarkers[j].high + 2),
+    //     });
+    //   } else {
+    //     markers.push({
+    //       time: datesForMarkers[j].time,
+    //       position: "belowBar",
+    //       color: "#2196F3",
+    //       shape: "arrowUp",
+    //       text: "Buy @ " + Math.floor(datesForMarkers[j].low - 2),
+    //     });
+    //   }
+    // }
+    // markers.push({
+    //   time: data[data.length - 48].time,
+    //   position: "aboveBar",
+    //   color: "#f68410",
+    //   shape: "circle",
+    //   text: "D",
+    // });
+    // series.setMarkers(markers);
   },
 };
 </script>
