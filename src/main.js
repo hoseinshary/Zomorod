@@ -8,6 +8,9 @@ import axios from 'axios'
 import router from './router'
 
 Vue.prototype.$http = axios
+// axios.defaults.baseURL = 'http://95.217.131.10/'
+
+
 
 
 

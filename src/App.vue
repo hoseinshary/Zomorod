@@ -75,8 +75,18 @@
     <router-view />
   </v-app>
 </template>
-<script></script>
-
+ 
+ 
+ 
+ <script>
+ export default {
+   created (){
+   }
+ 
+ }
+ </script>
+ 
+ 
 <style scoped lang="scss">
 @font-face {
   font-family: "IRYekan";

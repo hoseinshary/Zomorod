@@ -761,6 +761,8 @@
 
 <script>
 import axios from "axios";
+import config from "@/config";
+
 // import { createChart } from "lightweight-charts";
 //  import { LightweightCharts } from "lightweight-charts";
 
@@ -768,6 +770,9 @@ export default {
   name: "App",
   data() {
     return {
+      url1: `${config.paseUrl}` +"api/v1/CurrentPrice/GetTalagram",
+      url2: `${config.paseUrl}` +"api/v1/ArchivedPrice/GetSekeByTimeFrame/?timeframe=5",
+
       //navbar
       isCollapseOpen: false,
       chart: null,

@@ -121,15 +121,15 @@
 
           <b-row>
             <b-col cols="1"> </b-col>
-            <b-col cols="5" align="left" >
+            <b-col cols="5" align="left">
               {{ Hobab2 }}
               <b> : حباب دوم </b>
             </b-col>
 
-            <b-col cols="5" align="right" >
+            <b-col cols="5" align="right">
               {{ Hobab1 }}
 
-              <b> : حباب اول  </b>
+              <b> : حباب اول </b>
             </b-col>
 
             <b-col cols="1"> </b-col>
@@ -144,6 +144,7 @@
 
 <script>
 import axios from "axios";
+import config from "@/config";
 
 export default {
   async created() {
@@ -167,6 +168,10 @@ export default {
   components: {},
   data() {
     return {
+      url1: `${config.paseUrl}` + "api/v1/CurrentPrice/GetTalagram",
+      url2: `${config.paseUrl}` + "api/v1/Tools/GetList",
+
+
       resetLoading: false,
       hobabLoading: false,
 
@@ -226,6 +231,7 @@ export default {
     async hobabValue() {
       this.hobabLoading = true;
       await axios
+
         .post(`http://localhost:8080/api/v1/Tools/GetHobab`, this.form)
         .then((response) => {
           this.Hobab1 = response.data.Data.Hobab1;
@@ -234,7 +240,7 @@ export default {
         .catch((e) => {
           this.errors.push(e);
         });
-        this.hobabLoading = false;
+      this.hobabLoading = false;
     },
 
     async reset() {
@@ -247,8 +253,6 @@ export default {
       this.form.dollar = this.globalDolar;
       this.Hobab1 = "";
       this.Hobab2 = "";
-    
-
 
       await axios
         .get(`http://localhost:8080/api/v1/Tools/GetList`)
@@ -275,8 +279,6 @@ export default {
 .secol {
   padding-left: 15%;
 } */
-
-
 
 .select {
   width: 350px !important;
