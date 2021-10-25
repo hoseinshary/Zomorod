@@ -149,7 +149,7 @@ import config from "@/config";
 export default {
   async created() {
     await axios
-      .get(`http://localhost:8080/api/v1/CurrentPrice/GetTalagram`, {})
+      .get(this.url1, {})
       .then((response) => {
         this.form.dollar = response.data.Data.usdPrice;
         this.form.ons = response.data.Data.onsPrice;
@@ -158,7 +158,7 @@ export default {
       });
 
     await axios
-      .get(`http://localhost:8080/api/v1/Tools/GetList`)
+      .get(this.url2)
       .then((response) => {
         // this.list = response.data.Data;
         this.showList = response.data.Data;
@@ -170,6 +170,9 @@ export default {
     return {
       url1: `${config.paseUrl}` + "api/v1/CurrentPrice/GetTalagram",
       url2: `${config.paseUrl}` + "api/v1/Tools/GetList",
+      url3: `${config.paseUrl}` + "api/v1/Tools/GetHobab",
+
+
 
 
       resetLoading: false,
@@ -232,7 +235,7 @@ export default {
       this.hobabLoading = true;
       await axios
 
-        .post(`http://localhost:8080/api/v1/Tools/GetHobab`, this.form)
+        .post(this.url3, this.form)
         .then((response) => {
           this.Hobab1 = response.data.Data.Hobab1;
           this.Hobab2 = response.data.Data.Hobab2;
@@ -255,7 +258,7 @@ export default {
       this.Hobab2 = "";
 
       await axios
-        .get(`http://localhost:8080/api/v1/Tools/GetList`)
+        .get(this.url2)
         .then((response) => {
           // this.list = response.data.Data;
           this.showList = response.data.Data;

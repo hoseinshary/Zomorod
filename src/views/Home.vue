@@ -771,7 +771,7 @@ export default {
   data() {
     return {
       url1: `${config.paseUrl}` +"api/v1/CurrentPrice/GetTalagram",
-      url2: `${config.paseUrl}` +"api/v1/ArchivedPrice/GetSekeByTimeFrame/?timeframe=5",
+      // url2: `${config.paseUrl}` +"api/v1/ArchivedPrice/GetSekeByTimeFrame/?timeframe=5",
 
       //navbar
       isCollapseOpen: false,
@@ -902,7 +902,7 @@ export default {
     //date
     this.today = new Date().toLocaleDateString("fa-IR");
     await axios
-      .get(`http://localhost:8080/api/v1/CurrentPrice/GetTalagram`, {
+      .get(this.url1, {
         // headers: {
         //   "Access-Control-Allow-Origin": "*",
         // },
