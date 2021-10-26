@@ -1,94 +1,107 @@
 <template>
   <div class="d">
     <div class="background">
-      <b-row align="center">
-        <h1>قیمت رسمی طلا و مسکوکات بانکی</h1>
-      </b-row>
+      <div class="cont">
+        <b-row align="center">
+          <h2>({{ today }} ) : قیمت رسمی طلا و مسکوکات بانکی امروز</h2>
+        </b-row>
+        <br />
 
-      <b-row align="center">
-        <h2>تاریخ امروز</h2>
-      </b-row>
-      <br />
+        <b-row>
+          <b-col cols="4"> </b-col>
 
-      <b-row>
-        <b-col cols="3"> </b-col>
+          <b-col cols="4">
+            <v-card align="right" elevation="21" outlined shaped>
+              <h5>هر گرم طلا 18 عیار: {{ geramTalaPrice }}</h5>
+            </v-card>
 
-        <b-col cols="6">
-          <v-card align="right" elevation="21" outlined shaped>
-            <h3>: هر گرم طلا 18 عیار</h3>
-          </v-card>
+            <br />
 
-          <br />
+            <v-card align="right" elevation="14" outlined shaped>
+              <h5>
+                هر گرم طلا 24 عیار:
+                {{ gram24TalaPrice }}
+              </h5>
+            </v-card>
+            <br />
 
-          <v-card align="right" elevation="14" outlined shaped>
-            <h3>: هر گرم طلا 24 عیار</h3>
-          </v-card>
-          <br />
+            <b-card
+              text-align="right"
+              bg-variant="secondary"
+              text-variant="white"
+              class="text-center"
+            >
+              <div align="right">
+                <h5>تمام سکه : {{ mesghalRiyal }}</h5>
+              </div>
+            </b-card>
 
-          <b-card
-            text-align="right"
-            bg-variant="secondary"
-            text-variant="white"
-            class="text-center"
-          >
-            <b-card-text align="right"> : تمام سکه 86 </b-card-text>
-          </b-card>
+            <br />
 
-          <br />
+            <b-card
+              text-align="right"
+              bg-variant="dark"
+              text-variant="white"
+              class="text-center"
+            >
+              <b-card-text align="right">
+                <h5>یک مثقال طلای : {{ mesghalRiyal }}</h5>
+              </b-card-text>
+            </b-card>
+            <br />
 
-          <b-card
-            text-align="right"
-            bg-variant="dark"
-            text-variant="white"
-            class="text-center"
-          >
-            <b-card-text align="right"> : یک مثقال طلای 17 عیار </b-card-text>
-          </b-card>
-          <br />
+            <b-card
+              text-align="right"
+              bg-variant="secondary"
+              text-variant="white"
+              class="text-center"
+            >
+              <b-card-text align="right">
+                <h5>ربع سکه: {{ robPrice }}</h5>
+              </b-card-text>
+            </b-card>
+            <br />
 
-          <b-card
-            text-align="right"
-            bg-variant="secondary"
-            text-variant="white"
-            class="text-center"
-          >
-            <b-card-text align="right"> : ربع سکه 86 </b-card-text>
-          </b-card>
-          <br />
+            <b-card
+              text-align="right"
+              bg-variant="dark"
+              text-variant="white"
+              class="text-center"
+            >
+              <b-card-text align="right">
+                <h5>سکه یک گرمی : {{ sekeGeramiPrice }}</h5>
+              </b-card-text>
+            </b-card>
 
-          <b-card
-            text-align="right"
-            bg-variant="dark"
-            text-variant="white"
-            class="text-center"
-          >
-            <b-card-text align="right"> : سکه یک گرمی </b-card-text>
-          </b-card>
+            <br />
 
-          <br />
+            <b-card
+              text-align="right"
+              bg-variant="secondary"
+              text-variant="white"
+              class="text-center"
+            >
+              <b-card-text align="right">
+                <h5>نیم سکه : {{ nimPrice }}</h5>
+              </b-card-text>
+            </b-card>
+            <br />
 
-          <b-card
-            text-align="right"
-            bg-variant="secondary"
-            text-variant="white"
-            class="text-center"
-          >
-            <b-card-text align="right"> : نیم سکه 86 </b-card-text>
-          </b-card>
-          <br />
+            <b-card
+              text-align="right"
+              bg-variant="dark"
+              text-variant="white"
+              class="text-center"
+            >
+              <b-card-text align="right">
+                <h5>انس : {{ ons }}</h5>
+              </b-card-text>
+            </b-card>
+          </b-col>
 
-          <b-card
-            text-align="right"
-            bg-variant="dark"
-            text-variant="white"
-            class="text-center"
-          >
-            <b-card-text align="right"> : انس جهانی طلا به دلار </b-card-text>
-          </b-card>
-        </b-col>
-
-        <b-col cols="3"> </b-col>
-      </b-row>
+          <b-col cols="4"> </b-col>
+        </b-row>
+      </div>
     </div>
 
     <!-- <img
@@ -105,10 +118,67 @@
 </template>
 
 <script>
+import axios from "axios";
+import config from "@/config";
+
+
+
 export default {
   data() {
-    return {};
+    return {
+   url1: `${config.paseUrl}` + "api/v1/CurrentPrice/GetTalagram",
+
+
+
+      //Date
+      today: 0,
+
+      //nerhkha
+      dollar: 0,
+      ons: 0,
+      sekePrice: 0,
+      mesghalPrice: 0,
+      sekeGhadimPrice: 0,
+      sekeRiyal: 0,
+      geramTalaPrice: 0,
+      gram24TalaPrice: 0,
+      nimPrice: 0,
+      robPrice: 0,
+      sekeGeramiPrice: 0,
+    };
   },
+  async mounted() {
+    //Date
+    this.today = new Date().toLocaleDateString("fa-IR");
+
+    await axios
+      .get(this.url1, {
+        // headers: {
+        //   "Access-Control-Allow-Origin": "*",
+        // },
+      })
+      .then((response) => {
+        this.dollar = response.data.Data.usdPrice;
+        this.ons = response.data.Data.onsPrice;
+        this.silver = response.data.Data.silverPrice;
+        this.geramTalaPrice = response.data.Data.geramTalaPrice;
+        this.gram24TalaPrice = response.data.Data.gram24TalaPrice;
+        this.nimPrice = response.data.Data.nimPrice;
+        this.robPrice = response.data.Data.robPrice;
+        this.sekeGeramiPrice = response.data.Data.sekeGeramiPrice;
+        this.talaAyarPriceOpen = response.data.Data.talaAyarPriceOpen;
+
+        this.sekeRiyal = response.data.Data.sekeRiyal;
+        this.mesghalRiyal = response.data.Data.mesghalRiyal;
+      })
+      .catch((e) => {
+        this.errors.push(e);
+      });
+  },
+
+  
+
+
 };
 </script>
 
@@ -119,6 +189,10 @@ export default {
 }
 .background {
   background-image: url("~@/assets/background1.jpg");
+  height: 100%;
+  width: 100%;
+}
+.cont {
   height: 100%;
   width: 100%;
 }

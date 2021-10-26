@@ -41,15 +41,15 @@
               >
             </b-nav-item>
 
-            <!-- <b-nav-item class="ml-2" href="#">
-              <h6><b style="color: #bea44d"> اخبار مسکن و شهری </b></h6>
+             <b-nav-item class="ml-2" href="/ShowPrice">
+              <h6><b style="color: #bea44d"> قیمت انلاین </b></h6>
             </b-nav-item>
 
-            <b-nav-item class="ml-2" href="#">
-              <h6><b style="color: #bea44d"> اخبار خودرو </b></h6>
+            <b-nav-item class="ml-2" href="/MainChart">
+              <h6><b style="color: #bea44d"> نمودار </b></h6>
             </b-nav-item>
 
-            <b-nav-item class="ml-2" href="#">
+           <!-- <b-nav-item class="ml-2" href="#">
               <h6>
                 <b style="color: #bea44d"> اخبار بانك و بيمه </b>
               </h6>

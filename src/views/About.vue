@@ -147,7 +147,22 @@ import axios from "axios";
 import config from "@/config";
 
 export default {
+
   async created() {
+
+    await axios
+      .get(this.url2 , {})
+      .then((response) => {
+        // this.list = response.data.Data;
+        this.showList = response.data.Data;
+      });
+
+    
+
+    
+  },
+
+  async mounted(){
     await axios
       .get(this.url1, {})
       .then((response) => {
@@ -157,12 +172,6 @@ export default {
         this.globalOnc = response.data.Data.onsPrice;
       });
 
-    await axios
-      .get(this.url2)
-      .then((response) => {
-        // this.list = response.data.Data;
-        this.showList = response.data.Data;
-      });
   },
 
   components: {},
