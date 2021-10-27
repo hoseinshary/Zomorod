@@ -121,14 +121,13 @@
 import axios from "axios";
 import config from "@/config";
 
-
-
 export default {
   data() {
     return {
-   url1: `${config.paseUrl}` + "api/v1/CurrentPrice/GetTalagram",
+      list: [],
+      timer: "",
 
-
+      url1: `${config.paseUrl}` + "api/v1/CurrentPrice/GetTalagram",
 
       //Date
       today: 0,
@@ -147,38 +146,48 @@ export default {
       sekeGeramiPrice: 0,
     };
   },
+
+  methods: {
+    numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
+  },
+
+  created() {
+    setInterval(function () {
+      window.location.reload();
+    }, 20000);
+  },
+
   async mounted() {
     //Date
     this.today = new Date().toLocaleDateString("fa-IR");
 
     await axios
-      .get(this.url1, {
-        // headers: {
-        //   "Access-Control-Allow-Origin": "*",
-        // },
-      })
+      .get(`http://localhost:8080/api/v1/CurrentPrice/GetTalagram`, {})
+
+      // await axios
+      //   .get(this.url1, {
+
+      //   })
       .then((response) => {
         this.dollar = response.data.Data.usdPrice;
-        this.ons = response.data.Data.onsPrice;
-        this.silver = response.data.Data.silverPrice;
-        this.geramTalaPrice = response.data.Data.geramTalaPrice;
-        this.gram24TalaPrice = response.data.Data.gram24TalaPrice;
-        this.nimPrice = response.data.Data.nimPrice;
-        this.robPrice = response.data.Data.robPrice;
-        this.sekeGeramiPrice = response.data.Data.sekeGeramiPrice;
+        this.ons =  (response.data.Data.onsPrice).toLocaleString();
+        this.silver = (response.data.Data.silverPrice).toLocaleString();
+        this.geramTalaPrice = (response.data.Data.geramTalaPrice).toLocaleString();
+        this.gram24TalaPrice = (response.data.Data.gram24TalaPrice).toLocaleString();
+        this.nimPrice = this.numberWithCommas(response.data.Data.nimPrice) ;
+        this.robPrice = this.numberWithCommas( response.data.Data.robPrice);
+        this.sekeGeramiPrice = this.numberWithCommas( response.data.Data.sekeGeramiPrice);
         this.talaAyarPriceOpen = response.data.Data.talaAyarPriceOpen;
 
         this.sekeRiyal = response.data.Data.sekeRiyal;
-        this.mesghalRiyal = response.data.Data.mesghalRiyal;
+        this.mesghalRiyal = (response.data.Data.mesghalRiyal).toLocaleString();
       })
       .catch((e) => {
         this.errors.push(e);
       });
   },
-
-  
-
-
 };
 </script>
 

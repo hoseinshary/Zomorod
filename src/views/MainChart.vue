@@ -1,4 +1,5 @@
 <template>
+
   <trading-vue :data="chart"
                :toolbar="true"
                 :width="this.width"
@@ -6,9 +7,10 @@
                 :overlays="overlays"
                >
   </trading-vue>
+  
 </template>
 <script>
-
+import axios from "axios";
 import Data from "@/data.json";
 import  {DataCube , TradingVue} from "trading-vue-js";
 import TestOverlay from './TestOverlay.vue'
@@ -20,7 +22,19 @@ export default {
 
   
 
-  mounted() {
+ async mounted() {
+
+     await axios
+      .get(`http://localhost:8080//api/v1/ArchivedPrice/GetSekeByTimeFrame/?timeframe=5`, {})
+      .then((response) => {
+        this.form.dollar = response.data.Data.usdPrice;
+        this.form.ons = response.data.Data.onsPrice;
+        this.globalDolar = response.data.Data.usdPrice;
+        this.globalOnc = response.data.Data.onsPrice;
+      });
+
+
+
     window.addEventListener("resize", this.onResize);
     this.onResize();
     window.dc = this.chart;
@@ -33,6 +47,7 @@ export default {
 
   data() {
     return {         
+       //data
       width: window.innerWidth,
       height: window.innerHeight,
      overlays: [TestOverlay],

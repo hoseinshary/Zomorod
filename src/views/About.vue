@@ -19,17 +19,16 @@
                 label="انتخاب اول"
                 :item-text="'Name'"
                 :item-value="'Value'"
-                v-model="setPrice1"
+                v-model="firstselection"
                 dense
                 outlined
               ></v-select>
 
               <v-text-field
-                :rules="[numberRule]"
                 reverse
                 class="select"
                 label=" قیمت اول"
-                v-model="form.price1"
+                v-model="firstValue"
                 outlined
                 dense
               ></v-text-field>
@@ -43,16 +42,15 @@
                 label="انتخاب دوم"
                 :item-text="'Name'"
                 :item-value="'Value'"
-                v-model="setPrice2"
+                v-model="secondSelection"
                 dense
                 outlined
               ></v-select>
               <v-text-field
-                :rules="[numberRule]"
                 reverse
                 class="select"
                 label=" قیمت دوم"
-                v-model="form.price2"
+                v-model="secondValue"
                 outlined
                 dense
               ></v-text-field>
@@ -62,7 +60,6 @@
           <b-row>
             <b-col align="center">
               <v-text-field
-                :rules="[numberRule]"
                 reverse
                 class="select"
                 label=" قیمت انس"
@@ -76,14 +73,14 @@
           <b-row>
             <b-col align="center">
               <v-text-field
-                :rules="[numberRule]"
                 reverse
                 class="select"
                 label=" قیمت دلار"
-                v-model="form.dollar"
+                v-model="dollarPrice"
                 outlined
                 dense
-              ></v-text-field>
+              >
+              </v-text-field>
             </b-col>
           </b-row>
 
@@ -145,33 +142,30 @@
 <script>
 import axios from "axios";
 import config from "@/config";
+import Vue from "vue";
 
 export default {
-
   async created() {
-
     await axios
-      .get(this.url2 , {})
+      .get(`http://localhost:8080/api/v1/Tools/GetList`, {})
+      // .get(this.url2 , {})
       .then((response) => {
         // this.list = response.data.Data;
         this.showList = response.data.Data;
       });
-
-    
-
-    
   },
 
-  async mounted(){
+  async mounted() {
     await axios
-      .get(this.url1, {})
+      .get(`http://localhost:8080/api/v1/CurrentPrice/GetTalagram`, {})
+
+      //  .get(this.url1, {})
       .then((response) => {
-        this.form.dollar = response.data.Data.usdPrice;
-        this.form.ons = response.data.Data.onsPrice;
-        this.globalDolar = response.data.Data.usdPrice;
+        this.dollarPrice = this.numberWithCommas(response.data.Data.usdPrice);
+        this.form.ons = (response.data.Data.onsPrice).toLocaleString();
+        this.globalDolar = this.numberWithCommas(response.data.Data.usdPrice);
         this.globalOnc = response.data.Data.onsPrice;
       });
-
   },
 
   components: {},
@@ -181,14 +175,20 @@ export default {
       url2: `${config.paseUrl}` + "api/v1/Tools/GetList",
       url3: `${config.paseUrl}` + "api/v1/Tools/GetHobab",
 
-
-
-
       resetLoading: false,
       hobabLoading: false,
 
+      temp: 0,
+      getPrice1: "",
       setPrice1: "",
       setPrice2: "",
+      dollarPrice: "",
+      oncePrice: "",
+      firstselection: "",
+      secondSelection: "",
+
+      firstValue: "",
+      secondValue: "",
 
       numberRule: (v) => {
         if (!v.trim()) return true;
@@ -216,30 +216,74 @@ export default {
   },
 
   watch: {
-    setPrice1(ProductNameEnum1) {
+    oncePrice: function (newValue) {
+      const result = newValue
+        .replace(/\D/g, "")
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+      Vue.nextTick(() => (this.oncePrice = result));
+      this.form.ons = result;
+    },
+
+    dollarPrice: function (newValue) {
+      const result = newValue
+        .replace(/\D/g, "")
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+      Vue.nextTick(() => (this.dollarPrice = result));
+      this.form.dollar = result;
+    },
+
+    firstselection: function (ProductNameEnum1) {
       if (ProductNameEnum1 != "") {
         for (var item of this.showList) {
           if (item.Value == ProductNameEnum1) {
-            this.form.price1 = item.Price;
+            this.firstValue = this.numberWithCommas(item.Price);
+            this.form.price1 = this.numberWithCommas(item.Price);
+
             this.form.ProductNameEnum1 = ProductNameEnum1;
           }
         }
       }
     },
 
-    setPrice2(ProductNameEnum2) {
+    firstValue: function (newValue) {
+      const result = newValue
+        .replace(/\D/g, "")
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+      Vue.nextTick(() => (this.firstValue = result));
+      this.form.price1 = result;
+    },
+
+    secondSelection: function (ProductNameEnum2) {
       if (ProductNameEnum2 != "") {
         for (var item of this.showList) {
           if (item.Value == ProductNameEnum2) {
-            this.form.price2 = item.Price;
+            this.secondValue = this.numberWithCommas(item.Price);
+            this.form.price2 = this.numberWithCommas(item.Price);
+
             this.form.ProductNameEnum2 = ProductNameEnum2;
           }
         }
       }
     },
+
+    secondValue: function (newValue) {
+      const result = newValue
+        .replace(/\D/g, "")
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+      Vue.nextTick(() => (this.secondValue = result));
+      this.form.price2 = result;
+    },
   },
 
   methods: {
+    numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
+
     async hobabValue() {
       this.hobabLoading = true;
       await axios
@@ -267,7 +311,8 @@ export default {
       this.Hobab2 = "";
 
       await axios
-        .get(this.url2)
+        .get(`http://localhost:8080/api/v1/Tools/GetList`, {})
+        // .get(this.url2)
         .then((response) => {
           // this.list = response.data.Data;
           this.showList = response.data.Data;
