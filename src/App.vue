@@ -49,13 +49,13 @@
               <h6><b style="color: #bea44d"> نمودار </b></h6>
             </b-nav-item>
 
-           <!-- <b-nav-item class="ml-2" href="#">
+            <b-nav-item class="ml-2" href="ShowPrice2">
               <h6>
-                <b style="color: #bea44d"> اخبار بانك و بيمه </b>
+                <b style="color: #bea44d"> قیمت انلاین- 2 </b>
               </h6>
             </b-nav-item>
 
-            <b-nav-item class="ml-2" href="#">
+           <!-- <b-nav-item class="ml-2" href="#">
               <h6><b style="color: #bea44d"> اخبار ساير رسانه ها </b></h6>
             </b-nav-item>
 

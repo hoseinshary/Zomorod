@@ -24,6 +24,11 @@ const routes = [
     path: '/MainChart',
     name: 'MainChart',
     component: () => import('../views/MainChart.vue')
+  },
+  {
+    path: '/ShowPrice2',
+    name: 'ShowPrice2',
+    component: () => import('../views/ShowPrice2.vue')
   }
 ]
 
