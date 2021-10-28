@@ -55,11 +55,11 @@
               </h6>
             </b-nav-item>
 
-           <!-- <b-nav-item class="ml-2" href="#">
-              <h6><b style="color: #bea44d"> اخبار ساير رسانه ها </b></h6>
+            <b-nav-item class="ml-2" href="ShowPrice3">
+              <h6><b style="color: #bea44d"> قیمت انلاین- 3 </b></h6>
             </b-nav-item>
 
-            <b-nav-item class="ml-2" href="#">
+           <!-- <b-nav-item class="ml-2" href="#">
               <h6><b style="color: #bea44d"> اخبار توليد و تجارت </b></h6>
             </b-nav-item>
 

@@ -6,15 +6,15 @@
           <b-col cols="1"> </b-col>
 
           <b-col cols="10">
-            <b-row class="mt-2">
-              <b-col align="right" cols="5">
-                <b-row> <h5>بورس سکه و آبشده شرکت زمزد</h5> </b-row>
+            <b-row class="hcolor mt-2">
+              <b-col  align="right" cols="5">
+                <b-row > <h5 class="hcolor" >بورس سکه و آبشده شرکت زمزد</h5> </b-row>
                 <b-row>
-                  <h5>تاریخ:{{ today }}</h5>
+                  <h5 class="hcolor">تاریخ:{{ today }}</h5>
                 </b-row>
               </b-col>
 
-              <b-col align="right" cols="2">
+              <b-col align="center" cols="2">
                 <img
                   class="mt-0 mb-0 pt-0 pb-0"
                   width="65px"
@@ -27,20 +27,20 @@
 
               <b-col align="left" cols="4">
                 <b-row>
-                  <h3>
+                  <h3 class="hcolor">
                     0987798462
 
-                    <v-icon style="font-size: 35px; color: white"
+                    <v-icon style="font-size: 35px; color: black"
                       >whatsapp</v-icon
                     >
                   </h3>
                 </b-row>
 
                 <b-row>
-                  <h3>
+                  <h3 class="hcolor">
                     0987798462
 
-                    <v-icon style="font-size: 30px; color: white">call</v-icon>
+                    <v-icon style="font-size: 30px; color: black">call</v-icon>
                   </h3>
                 </b-row>
 
@@ -62,7 +62,7 @@
           <b-row class="mt-6">
             <b-col>
               <b-card
-                border-variant="warning"
+                border-variant="dark"
                 header="هر گرم طلا 18 عیار"
                 header-bg-variant="warning"
                 header-text-variant="black"
@@ -78,7 +78,7 @@
 
             <b-col>
               <b-card
-                border-variant="warning"
+                border-variant="dark"
                 header="هر گرم طلا 24 عیار"
                 header-bg-variant="warning"
                 header-text-variant="black"
@@ -96,7 +96,7 @@
             <b-col
             >
                 <b-card
-                border-variant="warning"
+                border-variant="dark"
                 header="نیم سکه"
                 header-bg-variant="warning"
                 header-text-variant="black"
@@ -120,7 +120,7 @@
           <b-row class="mt-6">
             <b-col>
               <b-card
-                border-variant="warning"
+                border-variant="dark"
                 header="یک مثقال طلای"
                 header-bg-variant="warning"
                 header-text-variant="black"
@@ -136,7 +136,7 @@
             </b-col>
             <b-col>
               <b-card
-                border-variant="warning"
+                border-variant="dark"
                 header="ربع سکه"
                 header-bg-variant="warning"
                 header-text-variant="black"
@@ -151,7 +151,7 @@
             </b-col>
             <b-col>
               <b-card
-                border-variant="warning"
+                border-variant="dark"
                 header="سکه یک گرمی "
                 header-bg-variant="warning"
                 header-text-variant="black"
@@ -172,7 +172,7 @@
           <b-row class="mt-6">
             <b-col>
               <b-card
-                border-variant="warning"
+                border-variant="dark"
                 header="نیم سکه"
                 header-bg-variant="warning"
                 header-text-variant="black"
@@ -192,7 +192,7 @@
             </b-col>
             <b-col>
               <b-card
-                border-variant="warning"
+                border-variant="dark"
                 header="انس"
                 header-bg-variant="warning"
                 header-text-variant="black"
@@ -207,7 +207,7 @@
             </b-col>
             <b-col>
               <b-card
-                border-variant="warning"
+                border-variant="dark"
                 header="دلار"
                 header-bg-variant="warning"
                 header-text-variant="black"
@@ -223,7 +223,7 @@
              <b-row class="mt-6">
             <b-col>
               <b-card
-                border-variant="warning"
+                border-variant="dark"
                 header="نیم سکه"
                 header-bg-variant="warning"
                 header-text-variant="black"
@@ -243,7 +243,7 @@
             </b-col>
             <b-col>
               <b-card
-                border-variant="warning"
+                border-variant="dark"
                 header="انس"
                 header-bg-variant="warning"
                 header-text-variant="black"
@@ -258,7 +258,7 @@
             </b-col>
             <b-col>
               <b-card
-                border-variant="warning"
+                border-variant="dark"
                 header="دلار"
                 header-bg-variant="warning"
                 header-text-variant="black"
@@ -387,11 +387,16 @@ export default {
 }
 .up {
   height: 13%;
-  background-color: #342a21;
+  background-color: 
+#43413f;
 }
 .down {
   height: 87%;
-  background-color: #877467;
+  background-color: 
+#D0ceb5
+;
+  //  background-image: url("~@/assets/background3.jpg");
+
 }
 
 h1,
@@ -399,11 +404,15 @@ h2,
 h3,
 h4,
 h5 {
-  color: #998e72;
+  color: black;
 }
 
 .cont {
   height: 100%;
   width: 100%;
+}
+
+.hcolor{
+  color: #D0ceb5 !important;
 }
 </style>
