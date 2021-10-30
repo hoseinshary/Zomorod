@@ -34,7 +34,8 @@ const routes = [
     path: '/ShowPrice3',
     name: 'ShowPrice3',
     component: () => import('../views/ShowPrice3.vue')
-  }
+  },
+  
 ]
 
 const router = new VueRouter({

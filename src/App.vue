@@ -1,5 +1,7 @@
 <template>
-  <v-app style="font-family: IRYekan;">
+  <v-app 
+  style="font-family: IRYekan"
+  >
     <b-row dir="rtl">
       <b-navbar toggleable="lg" type="dark" variant="dark">
         <div>
@@ -16,10 +18,9 @@
             </b-navbar-brand>
           </b-navbar>
         </div>
-        <b-navbar-brand >
-
+        <b-navbar-brand>
           <router-link to="/">طلاگرام</router-link>
-          </b-navbar-brand>
+        </b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -27,9 +28,7 @@
           <b-navbar-nav>
             <b-nav-item class="ml-2" href="#">
               <h6>
-                <b style="color: #bea44d">
-                  
-                </b>
+                <b style="color: #bea44d"> </b>
               </h6>
             </b-nav-item>
 
@@ -41,7 +40,7 @@
               >
             </b-nav-item>
 
-             <b-nav-item class="ml-2" href="/ShowPrice">
+            <b-nav-item class="ml-2" href="/ShowPrice">
               <h6><b style="color: #bea44d"> قیمت انلاین </b></h6>
             </b-nav-item>
 
@@ -59,15 +58,13 @@
               <h6><b style="color: #bea44d"> قیمت انلاین- 3 </b></h6>
             </b-nav-item>
 
-           <!-- <b-nav-item class="ml-2" href="#">
+            <!-- <b-nav-item class="ml-2" href="#">
               <h6><b style="color: #bea44d"> اخبار توليد و تجارت </b></h6>
             </b-nav-item>
 
             <b-nav-item class="ml-2" href="#">
               <h6><b style="color: #bea44d"> اخبار اقتصادی </b></h6>
             </b-nav-item> -->
-
-
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
@@ -79,12 +76,10 @@
  
  
  <script>
- export default {
-   created (){
-   }
- 
- }
- </script>
+export default {
+  created() {},
+};
+</script>
  
  
 <style scoped lang="scss">
@@ -122,12 +117,10 @@ p {
 
 a:link {
   text-decoration: none;
- background-color: none !important;
+  background-color: none !important;
 }
 
-a{
-   color:white !important;
-
-
+a {
+  color: white !important;
 }
 </style>

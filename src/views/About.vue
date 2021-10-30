@@ -162,7 +162,7 @@ export default {
       //  .get(this.url1, {})
       .then((response) => {
         this.dollarPrice = this.numberWithCommas(response.data.Data.usdPrice);
-        this.form.ons = (response.data.Data.onsPrice).toLocaleString();
+        this.form.ons = response.data.Data.onsPrice.toLocaleString();
         this.globalDolar = this.numberWithCommas(response.data.Data.usdPrice);
         this.globalOnc = response.data.Data.onsPrice;
       });
