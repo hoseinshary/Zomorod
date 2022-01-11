@@ -1,11 +1,11 @@
 <template>
   <div class="about">
-    <b-card>
-      <template #header>
+   
+         <br>
         <div style="text-align: center">
-          <b class="mb-0">محاسبه قيمت حباب</b>
+          <b class="mb-0"  style="color: #0D5671; ">محاسبه قيمت حباب</b>
         </div>
-      </template>
+        <br>
       <b-row>
         <b-col cols="2"> </b-col>
 
@@ -91,7 +91,7 @@
               <v-btn
                 :loading="resetLoading"
                 class="select2"
-                color="#bea44d"
+                color="#0486a2"
                 elevation="3"
                 rounded
                 x-large
@@ -102,9 +102,10 @@
               <v-btn
                 :loading="hobabLoading"
                 class="btnsize ml-1"
-                color="#bea44d"
+                color="#0486a2"
                 elevation="5"
                 rounded
+                dark
                 x-large
                 @click="hobabValue()"
                 >محاسبه حباب</v-btn
@@ -135,7 +136,10 @@
 
         <b-col cols="2"> </b-col>
       </b-row>
-    </b-card>
+                <br />                          <br />
+       <br />
+
+
   </div>
 </template>
 
@@ -339,6 +343,7 @@ export default {
 
 .select {
   width: 350px !important;
+  border-radius: 20px ;
 }
 .select2 {
   width: 110px !important;
@@ -346,4 +351,6 @@ export default {
 .btnsize {
   width: 200px;
 }
+
+
 </style>

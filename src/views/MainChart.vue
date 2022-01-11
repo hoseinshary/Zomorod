@@ -1,26 +1,28 @@
 <template>
-
-  <trading-vue :data="chart"
-               :toolbar="true"
-                :width="this.width"
-                :height="this.height"
-                :overlays="overlays"
-               >
+  <trading-vue
+    :data="chart"
+    :toolbar="true"
+    :width="this.width"
+    :height="this.height"
+    :overlays="overlays"
+  >
   </trading-vue>
-  
 </template>
 <script>
 import axios from "axios";
 import Data from "@/data.json";
-import  {DataCube , TradingVue} from "trading-vue-js";
-import TestOverlay from './TestOverlay.vue'
+import { DataCube, TradingVue } from "trading-vue-js";
+import TestOverlay from "./TestOverlay.vue";
 export default {
   name: "MainChart",
   components: { TradingVue },
-  
- async mounted() {
-     await axios
-      .get(`http://localhost:8080//api/v1/ArchivedPrice/GetSekeByTimeFrame/?timeframe=5`, {})
+
+  async mounted() {
+    await axios
+      .get(
+        `http://localhost:8080//api/v1/ArchivedPrice/GetSekeByTimeFrame/?timeframe=5`,
+        {}
+      )
       .then((response) => {
         this.form.dollar = response.data.Data.usdPrice;
         this.form.ons = response.data.Data.onsPrice;
@@ -31,17 +33,17 @@ export default {
     this.onResize();
     window.dc = this.chart;
   },
- 
+
   beforeUnmount() {
     window.removeEventListener("resize", this.onResize);
   },
   data() {
-    return {         
-       //data
+    return {
+      //data
       width: window.innerWidth,
       height: window.innerHeight,
-     overlays: [TestOverlay],
-       chart: new DataCube(Data),
+      overlays: [TestOverlay],
+      chart: new DataCube(Data),
     };
   },
 };
