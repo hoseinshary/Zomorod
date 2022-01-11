@@ -86,11 +86,11 @@
 
           <br />
 
-          <b-row>
+          <b-row >
             <b-col align="center">
               <v-btn
                 :loading="resetLoading"
-                class="select2"
+                class=" btns1 select2"
                 color="#0486a2"
                 elevation="3"
                 rounded
@@ -101,7 +101,7 @@
               >
               <v-btn
                 :loading="hobabLoading"
-                class="btnsize ml-1"
+                class="btns1 btnsize ml-1"
                 color="#0486a2"
                 elevation="5"
                 rounded
@@ -350,6 +350,10 @@ export default {
 }
 .btnsize {
   width: 200px;
+}
+
+.btns1{
+  margin: 3%;
 }
 
 
