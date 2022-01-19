@@ -1,14 +1,16 @@
 <template>
   <div class="d">
-    <div class="background">
+    <div class="">
       <b-row class="up">
         <b-row dir="rtl">
           <b-col cols="1"> </b-col>
 
           <b-col cols="10">
             <b-row class="hcolor mt-2">
-              <b-col  align="right" cols="5">
-                <b-row > <h5 class="hcolor" >بورس سکه و آبشده شرکت زمزد</h5> </b-row>
+              <b-col align="right" cols="5">
+                <b-row>
+                  <h5 class="hcolor">بورس سکه و آبشده شرکت زمزد</h5>
+                </b-row>
                 <b-row>
                   <h5 class="hcolor">تاریخ:{{ today }}</h5>
                 </b-row>
@@ -56,12 +58,20 @@
       </b-row>
 
       <b-row dir="rtl" class="down pr-0 mr-0">
+        
         <b-col cols="1"></b-col>
 
-        <b-col cols="10">
+        <b-col cols=" 10">
           <b-row class="mt-6">
             <b-col>
-              <b-card
+              <img
+                class="mt-0 mb-0 pt-0 pb-0"
+                width="75%"
+                height="250em"
+                src="@/assets/price.png"
+              />
+
+              <!-- <b-card
                 border-variant="dark"
                 header="هر گرم طلا 18 عیار"
                 header-bg-variant="warning"
@@ -73,11 +83,19 @@
                     {{ geramTalaPrice }}
                   </h3>
                 </b-card-text>
-              </b-card>
+              </b-card> -->
             </b-col>
 
             <b-col>
-              <b-card
+              <div class="pricediv">
+                <br />
+                <br />
+                <br />
+
+                <h3>گرم طلا 18 عیار</h3>
+              </div>
+
+              <!-- <b-card
                 border-variant="dark"
                 header="هر گرم طلا 24 عیار"
                 header-bg-variant="warning"
@@ -89,13 +107,11 @@
                     {{ gram24TalaPrice }}
                   </h3>
                 </b-card-text>
-              </b-card>
+              </b-card> -->
             </b-col>
 
-
-            <b-col
-            >
-                <b-card
+            <b-col>
+              <!-- <b-card
                 border-variant="dark"
                 header="نیم سکه"
                 header-bg-variant="warning"
@@ -112,8 +128,7 @@
                   
                   </b-card-text
                 >
-              </b-card>
-
+              </b-card> -->
             </b-col>
           </b-row>
 
@@ -127,11 +142,8 @@
                 align="center"
               >
                 <b-card-text>
-                  
-                  <h3> {{mesghalRiyal}} </h3>
-                  
-                  </b-card-text
-                >
+                  <h3>{{ mesghalRiyal }}</h3>
+                </b-card-text>
               </b-card>
             </b-col>
             <b-col>
@@ -157,14 +169,9 @@
                 header-text-variant="black"
                 align="center"
               >
-                <b-card-text
-                  >
-
-                  <h3> {{sekeGeramiPrice}} </h3>
-                  
-                  
-                  </b-card-text
-                >
+                <b-card-text>
+                  <h3>{{ sekeGeramiPrice }}</h3>
+                </b-card-text>
               </b-card>
             </b-col>
           </b-row>
@@ -179,15 +186,10 @@
                 align="center"
               >
                 <b-card-text>
-                  
-                  <h3> 
-
-                    {{nimPrice}}
+                  <h3>
+                    {{ nimPrice }}
                   </h3>
-                  
-                  
-                  </b-card-text
-                >
+                </b-card-text>
               </b-card>
             </b-col>
             <b-col>
@@ -220,7 +222,7 @@
             </b-col>
           </b-row>
 
-             <b-row class="mt-6">
+          <b-row class="mt-6">
             <b-col>
               <b-card
                 border-variant="dark"
@@ -230,15 +232,10 @@
                 align="center"
               >
                 <b-card-text>
-                  
-                  <h3> 
-
-                    {{nimPrice}}
+                  <h3>
+                    {{ nimPrice }}
                   </h3>
-                  
-                  
-                  </b-card-text
-                >
+                </b-card-text>
               </b-card>
             </b-col>
             <b-col>
@@ -270,11 +267,6 @@
               </b-card>
             </b-col>
           </b-row>
-
-
-        
-
-
         </b-col>
 
         <b-col cols="1"></b-col>
@@ -387,16 +379,12 @@ export default {
 }
 .up {
   height: 13%;
-  background-color: 
-#43413f;
+  background-color: #43413f;
 }
 .down {
   height: 87%;
-  background-color: 
-#D0ceb5
-;
+  background-color: #d0ceb5;
   //  background-image: url("~@/assets/background3.jpg");
-
 }
 
 h1,
@@ -412,7 +400,19 @@ h5 {
   width: 100%;
 }
 
-.hcolor{
-  color: #D0ceb5 !important;
+.hcolor {
+  color: #d0ceb5 !important;
+}
+.background {
+  background-image: url("~@/assets/black.jpg");
+  height: 100%;
+  width: 100%;
+}
+
+.pricediv {
+  background-image: url("~@/assets/price.png");
+  background-color: #07075c;
+  height: 100%;
+  width: 85%;
 }
 </style>

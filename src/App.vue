@@ -18,7 +18,9 @@
         </div>
         <b-navbar-brand>
           <router-link to="/">
-            <p style="color: #f5d438;text-shadow: 3px 3px 7px black;"  >طلاگرام</p>
+            <p style="color: #f5d438; text-shadow: 3px 3px 7px black">
+              طلاگرام
+            </p>
           </router-link>
         </b-navbar-brand>
 
@@ -40,15 +42,15 @@
               >
             </b-nav-item>
 
-            <b-nav-item class="ml-2" href="/ShowPrice">
+            <!-- <b-nav-item class="ml-2" href="/ShowPrice">
               <h6><b style="color: #efede9"> قیمت انلاین </b></h6>
-            </b-nav-item>
+            </b-nav-item> -->
 
             <b-nav-item class="ml-2" href="/MainChart">
               <h6><b style="color: #efede9"> نمودار </b></h6>
             </b-nav-item>
 
-            <b-nav-item class="ml-2" href="ShowPrice2">
+            <!-- <b-nav-item class="ml-2" href="ShowPrice2">
               <h6>
                 <b style="color: #efede9"> قیمت انلاین- 2 </b>
               </h6>
@@ -56,7 +58,7 @@
 
             <b-nav-item class="ml-2" href="ShowPrice3">
               <h6><b style="color: #efede9"> قیمت انلاین- 3 </b></h6>
-            </b-nav-item>
+            </b-nav-item> -->
 
             <!-- <b-nav-item class="ml-2" href="#">
               <h6><b style="color: #bea44d"> اخبار توليد و تجارت </b></h6>
@@ -75,66 +77,85 @@
       <hr />
 
       <b-col>
-        <div class="place container">
-          <h5><b style="color: #efede9; text-shadow: 3px 3px 7px black;"> لینک های مفید </b></h5>
+        <div class="container">
+          <h5>
+            <b style="color: #efede9; text-shadow: 3px 3px 7px black">
+              لینک های مفید
+            </b>
+          </h5>
           <br />
+          <div class="place">
+            <h6>
+              <a href="https://ex.ebidar.com/v-533">
+                <li class="place">اقتصاد بیدار</li>
+              </a>
+            </h6>
 
-          <h6 class="place bedar" style="color: black">
-            <a href="https://ex.ebidar.com/v-533" style="color: black">
-              <li class="bedar">اقتصاد بیدار</li>
-            </a>
-          </h6>
+            <h6 class="place">
+              <a style="color: black" href="https://t.me/tahlilonline_com">
+                <li class="place">تحلیل انلاین</li>
+              </a>
+            </h6>
 
-          <h6>
-            <a style="color: black" href="https://t.me/tahlilonline_com">
-              <li>تحلیل انلاین</li>
-            </a>
-          </h6>
-
-          <h6 class="ml-10">
-            <a style="color: black"> <li>طلاگرام</li> </a>
-          </h6>
+            <h6 class="place">
+              <a style="color: black" href="https://t.me/tahlilonline_com">
+                <li class="place">باشگاه زمرد</li>
+              </a>
+            </h6>
+          </div>
         </div>
       </b-col>
 
       <b-col>
         <div>
-          <h5 class="place"><b style="color: #efede9; text-shadow: 3px 3px 7px black;"> راه های ارتباطی </b></h5>
+          <h5 class="">
+            <b style="color: #efede9; text-shadow: 3px 3px 7px black">
+              راه های ارتباطی
+            </b>
+          </h5>
           <br />
           <div>
-            <h6 style="color: white">
-              شیراز، خیابان قصرالدشت، چهارراه ملاصدرا، مرکز خرید طلا و جواهر پارس، طبقه همکف واحد 29
+            <h6 style="color: #a5b9bd">
+              شیراز، خیابان قصرالدشت، چهارراه ملاصدرا، مرکز خرید طلا و جواهر
+              پارس، طبقه همکف واحد 29
             </h6>
           </div>
 
           <div class="place">
             <h3>
-              <a href="tel:07132301858" style="color: red"> 071-32301858 </a>
+              <a href="tel:07132301858">
+                <p class="place">071-32301858</p>
+              </a>
             </h3>
-             <h3>
-              <a href="tel:09171092419" style="color: red"> 09171092419 </a>
+            <h3>
+              <a href="tel:09171092419">
+                <p class="place">09171092419</p>
+              </a>
             </h3>
           </div>
 
           <br />
         </div>
-        <div class="container">
-          <a class="ml-1" href="https://t.me/talagram_chnl">
-            <img src="@/assets/tel3.png" />
+        <div class="place1 container">
+          <a class="place1 ml-1" href="https://t.me/talagram_chnl">
+            <img class="place1" src="@/assets/tel3.png" />
           </a>
 
           <a
-            class="ml-1"
+            class="place1 ml-1"
             href="https://instagram.com/tahlilonline_com?utm_medium=copy_link"
           >
             <img src="@/assets/ins.png" />
           </a>
 
-          <a class="ml-2" href="https://www.aparat.com/tahlilonline.com">
+          <a class="place1 ml-2" href="https://www.aparat.com/tahlilonline.com">
             <img src="@/assets/apa.png" />
           </a>
 
-          <a href="https://www.youtube.com/channel/UCo0Q1Re84VCVjemnr6-uN_g">
+          <a
+            class="place1"
+            href="https://www.youtube.com/channel/UCo0Q1Re84VCVjemnr6-uN_g"
+          >
             <img src="@/assets/you.png" />
           </a>
         </div>
@@ -207,5 +228,19 @@ a {
 
 .footer {
   background-color: #0d5671;
+}
+.place {
+  color: #a5b9bd;
+}
+
+.place :hover {
+  color: #ffffff;
+  transition: 0.1s;
+  // opacity: 0.6;
+}
+
+.place1 :hover {
+  color: #ffffff;
+	-webkit-transform: translate(-10%, -10%);
 }
 </style>

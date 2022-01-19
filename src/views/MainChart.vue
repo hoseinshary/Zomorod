@@ -1,52 +1,29 @@
 <template>
-  <trading-vue
-    :data="chart"
-    :toolbar="true"
-    :width="this.width"
-    :height="this.height"
-    :overlays="overlays"
-  >
-  </trading-vue>
+  <div class="app">
+  
+    <b-row>
+      <div class="ch"><TVChartContainer /></div>
+    </b-row>
+
+    
+    
+  </div>
 </template>
+
 <script>
-import axios from "axios";
-import Data from "@/data.json";
-import { DataCube, TradingVue } from "trading-vue-js";
-import TestOverlay from "./TestOverlay.vue";
+import TVChartContainer from "../components/TVChartContainer.vue";
 export default {
-  name: "MainChart",
-  components: { TradingVue },
-
-  async mounted() {
-    await axios
-      .get(
-        `http://localhost:8080//api/v1/ArchivedPrice/GetSekeByTimeFrame/?timeframe=5`,
-        {}
-      )
-      .then((response) => {
-        this.form.dollar = response.data.Data.usdPrice;
-        this.form.ons = response.data.Data.onsPrice;
-        this.globalDolar = response.data.Data.usdPrice;
-        this.globalOnc = response.data.Data.onsPrice;
-      });
-    window.addEventListener("resize", this.onResize);
-    this.onResize();
-    window.dc = this.chart;
-  },
-
-  beforeUnmount() {
-    window.removeEventListener("resize", this.onResize);
-  },
-  data() {
-    return {
-      //data
-      width: window.innerWidth,
-      height: window.innerHeight,
-      overlays: [TestOverlay],
-      chart: new DataCube(Data),
-    };
+  name: "app",
+  components: {
+    TVChartContainer,
   },
 };
 </script>
-<style>
+
+<style lang="scss" scoped>
+
+
+.ch {
+  font-size: 50px;
+}
 </style>

@@ -197,7 +197,7 @@ export default {
   height: 100%;
 }
 .background {
-  background-image: url("~@/assets/background1.jpg");
+  background-image: url("~@/assets/white.jpg");
   height: 100%;
   width: 100%;
 }
